@@ -7,6 +7,8 @@ def converter(src_path, dest_path):
 
     dest_schema = {}
 
+    required = []
+
     src_properties = src_schema["properties"]
 
     for key in src_schema:
@@ -17,12 +19,14 @@ def converter(src_path, dest_path):
             continue
 
         dest_schema[key] = src_schema[key]
-        dest_schema["properties"] = convert_properties(src_properties)
+        dest_schema["properties"], required = convert_properties(src_properties)
+        dest_schema["required"] = required
 
-    json.dump(dest_schema, open(dest_path, "w"))
+    json.dump(dest_schema, open(dest_path, "w"), sort_keys=True, indent=2, separators=(',', ': '))
 
 def convert_properties(src_prop):
     dest_prop = {}
+    required = []
 
     for key in src_prop:
         temp = {}
@@ -43,7 +47,11 @@ def convert_properties(src_prop):
                  temp["format"] = src_prop[key]["format"]
              
              dest_prop[key] = temp
-    return dest_prop
+
+             if 'null' not in src_prop[key]["type"]:
+                 required.append(key)
+
+    return dest_prop, required
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Convert json schema to an updated one")
