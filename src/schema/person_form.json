@@ -2,12 +2,36 @@
   "description": "A real person, alive or dead",
   "id": "http://www.popoloproject.com/schemas/person.json#",
   "properties": {
-    "additional_name": {
+    "name": {
       "attrs": {
-        "placeholder": "One or more secondary given names",
-        "title": "One or more secondary given names"
+        "placeholder": "A person's preferred full name",
+        "title": "A person's preferred full name"
       },
-      "title": "One or more secondary given names",
+      "title": "A person's preferred full name",
+      "type": "string"
+    },
+    "national_identity": {
+      "attrs": {
+        "placeholder": "A national identity",
+        "title": "A national identity"
+      },
+      "title": "A national identity",
+      "type": "string"
+    },
+    "given_name": {
+      "attrs": {
+        "placeholder": "One or more primary given names",
+        "title": "One or more primary given names"
+      },
+      "title": "One or more primary given names",
+      "type": "string"
+    },
+    "summary": {
+      "attrs": {
+        "placeholder": "A one-line account of a person's life",
+        "title": "A one-line account of a person's life"
+      },
+      "title": "A one-line account of a person's life",
       "type": "string"
     },
     "biography": {
@@ -16,6 +40,14 @@
         "title": "An extended account of a person's life"
       },
       "title": "An extended account of a person's life",
+      "type": "string"
+    },
+    "additional_name": {
+      "attrs": {
+        "placeholder": "One or more secondary given names",
+        "title": "One or more secondary given names"
+      },
+      "title": "One or more secondary given names",
       "type": "string"
     },
     "birth_date": {
@@ -70,14 +102,7 @@
       "title": "A gender",
       "type": "string"
     },
-    "given_name": {
-      "attrs": {
-        "placeholder": "One or more primary given names",
-        "title": "One or more primary given names"
-      },
-      "title": "One or more primary given names",
-      "type": "string"
-    },
+    
     "honorific_prefix": {
       "attrs": {
         "placeholder": "One or more honorifics preceding a person's name",
@@ -111,22 +136,7 @@
       "title": "A URL of a head shot",
       "type": "string"
     },
-    "name": {
-      "attrs": {
-        "placeholder": "A person's preferred full name",
-        "title": "A person's preferred full name"
-      },
-      "title": "A person's preferred full name",
-      "type": "string"
-    },
-    "national_identity": {
-      "attrs": {
-        "placeholder": "A national identity",
-        "title": "A national identity"
-      },
-      "title": "A national identity",
-      "type": "string"
-    },
+    
     "patronymic_name": {
       "attrs": {
         "placeholder": "One or more patronymic names",
@@ -143,14 +153,7 @@
       "title": "A name to use in a lexicographically ordered list",
       "type": "string"
     },
-    "summary": {
-      "attrs": {
-        "placeholder": "A one-line account of a person's life",
-        "title": "A one-line account of a person's life"
-      },
-      "title": "A one-line account of a person's life",
-      "type": "string"
-    },
+    
     "updated_at": {
       "attrs": {
         "placeholder": "The time at which the resource was last modified",
