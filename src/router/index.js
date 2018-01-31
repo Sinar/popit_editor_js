@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import Person from '@/components/Person'
 import PersonEdit from '@/components/PersonEdit'
 import Login from '@/components/Login'
+import Logout from '@/components/Logout'
 
 Vue.use(Router)
 
@@ -16,18 +17,23 @@ export default new Router({
     },
     {
       path: '/persons/create',
-      name: Person,
+      name: 'Person',
       component: Person
     },
     {
       path: '/persons/edit/:entity_id',
-      name: PersonEdit,
+      name: 'PersonEdit',
       component: PersonEdit
     },
     {
       path: '/login',
-      name: Login,
+      name: 'Login',
       component: Login
+    },
+    {
+      path: '/logout',
+      name: 'Logout',
+      component: Logout
     }
   ]
 })
