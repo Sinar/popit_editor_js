@@ -8,7 +8,7 @@
 <script>
 import FormSchema from 'vue-json-schema'
 import schema from '../schema/person_form.json'
-import axios from 'axios'
+import { HTTP } from '../http-common.js'
 
 FormSchema.setComponent('form', 'el-form', ({ vm }) => {
   const labelPosition = 'top'
@@ -47,14 +47,29 @@ export default {
     }
   },
   created () {
+    console.log(this.$store.state.loggedIn)
     this.fetch_entity(this.$route.params.entity_id)
   },
   methods: {
     submit (e) {
+      var entityId = this.$route.params.entity_id
+      var url = '/en/persons/' + entityId
+      var loggedIn = this.$store.loggedIn
+      if (loggedIn === true) {
+        HTTP.put(url, this.model)
+          .then(response => {
+            console.log(response)
+          })
+          .catch(e => {
+            console.log(e)
+          })
+      } else {
+        this.$route.push('/login')
+      }
     },
     fetch_entity (entityId) {
-      var url = 'https://api.popit.sinarproject.org/en/persons/' + entityId
-      axios.get(url)
+      var url = '/en/persons/' + entityId
+      HTTP.get(url)
         .then(response => {
           this.model = response.data.result
         })

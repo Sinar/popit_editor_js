@@ -8,6 +8,7 @@
 <script>
 import FormSchema from 'vue-json-schema'
 import schema from '../schema/person_form.json'
+import { HTTP } from '../http-common.js'
 
 FormSchema.setComponent('form', 'el-form', ({ vm }) => {
   const labelPosition = 'top'
@@ -42,6 +43,19 @@ export default {
   },
   methods: {
     submit (e) {
+      var url = '/en/persons/'
+      var loggedIn = this.$store.loggedIn
+      if (loggedIn === true) {
+        HTTP.post(url, this.model)
+          .then(response => {
+            console.log(response)
+          })
+          .catch(e => {
+            console.log(e)
+          })
+      } else {
+        this.$route.push('/login')
+      }
     }
   },
   components: {
