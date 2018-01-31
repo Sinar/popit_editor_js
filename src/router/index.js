@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Person from '@/components/Person'
 import PersonEdit from '@/components/PersonEdit'
+import Login from '@/components/Login'
 
 Vue.use(Router)
 
@@ -22,6 +23,11 @@ export default new Router({
       path: '/persons/edit/:entity_id',
       name: PersonEdit,
       component: PersonEdit
+    },
+    {
+      path: '/login',
+      name: Login,
+      component: Login
     }
   ]
 })
