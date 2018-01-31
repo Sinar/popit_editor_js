@@ -15,10 +15,10 @@ export default new Vuex.Store({
       state.loggedIn = false
     }
   },
-  action: {
+  actions: {
     login ({ commit }, authToken) {
       commit('login')
-      localStorage.setItem('token', authToken)
+      localStorage.setItem('token', authToken.authToken)
     },
     logout ({ commit }) {
       commit('logout')

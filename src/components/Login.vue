@@ -21,7 +21,13 @@ export default {
   },
   methods: {
     addToken () {
-      console.log(this.form.authToken)
+      console.log('adding ' + this.form.authToken)
+      console.log('previously is ' + localStorage.getItem('token'))
+      this.$store.dispatch('login', { authToken: this.form.authToken })
+        .then(() => {
+          console.log('added ' + localStorage.getItem('token'))
+          this.$router.push('/')
+        })
     }
   }
 }
