@@ -1,7 +1,7 @@
 <template>
   <el-card class="form">
-    <form-schema :schema="schema" v-model="model">
-
+    <form-schema ref="formSchema" :schema="schema" v-model="model">
+      <el-button type="primary" @click="submit">Edit</el-button>
     </form-schema>
   </el-card>
 </template>
@@ -44,15 +44,24 @@ export default {
   methods: {
     submit (e) {
       var url = '/en/persons/'
-      var loggedIn = this.$store.loggedIn
-      if (loggedIn === true) {
-        HTTP.post(url, this.model)
-          .then(response => {
-            console.log(response)
-          })
-          .catch(e => {
-            console.log(e)
-          })
+      var loggedIn = this.$store.state.loggedIn
+      if (loggedIn) {
+        this.$refs.formSchema.form().validate((valid) => {
+          if (valid) {
+            console.log(JSON.stringify(this.model))
+            this.$refs.formSchema.clearErrorMessage()
+            HTTP.post(url, this.model)
+              .then(response => {
+                console.log(response)
+              })
+              .catch(e => {
+                console.log(e)
+              })
+          } else {
+            this.$refs.formSchema.setErrorMessage('Please Fill in the form')
+            return false
+          }
+        })
       } else {
         this.$route.push('/login')
       }
