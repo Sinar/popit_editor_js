@@ -31,25 +31,27 @@ def convert_properties(src_prop):
     for key in src_prop:
         temp = {}
         # Figure out how to handle this
-        if src_prop[key]["type"] == "array":
-            continue
+        if "type" in src_prop[key]:
+            if src_prop[key]["type"] == "array":
+                continue
 
-        if 'string' in src_prop[key]["type"]:
-             temp["type"] = 'string'
-             temp["title"] = src_prop[key]["description"]
-             temp["attrs"] = {
-                 "placeholder": src_prop[key]["description"],
-                 "title": src_prop[key]["description"]
-             }
-             if "pattern" in src_prop[key]:
-                 temp["pattern"] = src_prop[key]["pattern"]
-             if "format" in src_prop[key]:
-                 temp["format"] = src_prop[key]["format"]
+            if 'string' in src_prop[key]["type"]:
+                temp["type"] = 'string'
+                temp["title"] = src_prop[key]["description"]
+                temp["attrs"] = {
+                    "placeholder": src_prop[key]["description"],
+                    "title": src_prop[key]["description"]
+                }
+                if "pattern" in src_prop[key]:
+                    temp["pattern"] = src_prop[key]["pattern"]
+                if "format" in src_prop[key]:
+                    temp["format"] = src_prop[key]["format"]
              
-             dest_prop[key] = temp
+                dest_prop[key] = temp
 
-             if 'null' not in src_prop[key]["type"]:
-                 required.append(key)
+                if 'null' not in src_prop[key]["type"]:
+                    required.append(key)
+
 
     return dest_prop, required
 
