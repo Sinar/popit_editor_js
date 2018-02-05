@@ -1,7 +1,7 @@
 <template>
   <el-card class="form">
     <form-schema ref="formSchema" :schema="schema" v-model="model">
-      <el-button type="primary" @click="submit">Edit</el-button>
+      <el-button type="primary" @click="submit">Create</el-button>
     </form-schema>
   </el-card>
 </template>
