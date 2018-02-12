@@ -13,6 +13,10 @@
     "note": {
       "description": "A note, e.g. 'Wikipedia page'",
       "type": "string"
+    },
+    "field": {
+      "description": "Field of this data that the url link to",
+      "type": "string"
     }
   },
   "required": []
