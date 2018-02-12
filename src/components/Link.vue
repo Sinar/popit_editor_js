@@ -7,7 +7,7 @@
 </template>
 <script>
 import FormSchema from 'vue-json-schema'
-import schema from '../schema/person_form.json'
+import schema from '../schema/link_form.json'
 import { HTTP } from '../http-common.js'
 
 FormSchema.setComponent('form', 'el-form', ({ vm }) => {
