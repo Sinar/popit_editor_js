@@ -45,14 +45,16 @@ export default {
     '$route': function (to, from) {
       var entity = this.$route.params.entity
       var entityId = this.$route.params.entity_id
-      this.fetch_entity(entity, entityId)
+      var linkID = this.$route.params.link_id
+      this.fetch_entity(entity, entityId, linkID)
     }
   },
   created () {
     console.log(this.$store.state.loggedIn)
     var entity = this.$route.params.entity
     var entityId = this.$route.params.entity_id
-    this.fetch_entity(entity, entityId)
+    var linkID = this.$route.params.link_id
+    this.fetch_entity(entity, entityId, linkID)
   },
   methods: {
     submit (e) {

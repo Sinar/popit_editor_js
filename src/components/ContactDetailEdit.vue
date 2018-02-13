@@ -41,11 +41,26 @@ export default {
       model: {}
     }
   },
+  watch: {
+    '$route': function (to, from) {
+      var entity = this.$route.params.entity
+      var entityId = this.$route.params.entity_id
+      var contactID = this.$route.params.contact_id
+      this.fetch_entity(entity, entityId, contactID)
+    }
+  },
+  created () {
+    var entity = this.$route.params.entity
+    var entityId = this.$route.params.entity_id
+    var contactID = this.$route.params.contact_id
+    this.fetch_entity(entity, entityId, contactID)
+  }
   methods: {
     submit (e) {
       var entityId = this.$route.params.entity_id
       var entity = this.$route.params.entity
-      var url = '/en/' + entity + '/' + entityId + '/contact_details'
+      var contactID = this.$route.params.contact_id
+      var url = '/en/' + entity + '/' + entityId + '/contact_details/' + contactID
       var loggedIn = this.$store.state.loggedIn
       if (loggedIn) {
         this.$refs.formSchema.form().validate((valid) => {
