@@ -58,7 +58,8 @@ export default {
     submit (e) {
       var entity = this.$route.params.entity
       var entityId = this.$route.params.entity_id
-      var url = '/en/'+ entity + '/' + entityId
+      var linkID = this.$route.params.link_id
+      var url = '/en/'+ entity + '/' + entityId + '/links/' + linkID
       var loggedIn = this.$store.state.loggedIn
       console.log(loggedIn)
       if (loggedIn) {
@@ -82,8 +83,8 @@ export default {
         this.$router.push('/login')
       }
     },
-    fetch_entity (entity, entityId) {
-      var url = '/en/' + entity + '/' + entityId
+    fetch_entity (entity, entityId, linkID) {
+      var url = '/en/' + entity + '/' + entityId + '/links/' + linkID
       HTTP.get(url)
         .then(response => {
           this.model = response.data.result
