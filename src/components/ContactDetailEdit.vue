@@ -54,7 +54,7 @@ export default {
     var entityId = this.$route.params.entity_id
     var contactID = this.$route.params.contact_id
     this.fetch_entity(entity, entityId, contactID)
-  }
+  },
   methods: {
     submit (e) {
       var entityId = this.$route.params.entity_id
@@ -93,8 +93,6 @@ export default {
         .catch(e => {
           console.log(e)
         })
-    }
-
     }
   },
   components: {
