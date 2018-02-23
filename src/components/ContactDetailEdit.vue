@@ -67,7 +67,7 @@ export default {
           if (valid) {
             console.log(JSON.stringify(this.model))
             this.$refs.formSchema.clearErrorMessage()
-            HTTP.post(url, this.model)
+            HTTP.put(url, this.model)
               .then(response => {
                 console.log(response)
               })
