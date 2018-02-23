@@ -44,7 +44,8 @@ export default {
       submit (e) {
         var entityId = this.$route.params.entity_id
         var entity = this.$route.params.entity
-        var url = '/en/' + entity + '/' + entityId + '/contact_details'
+        var popitField = this.$route.params.field
+        var url = '/en/' + entity + '/' + entityId + '/citations/' + popitField
         var loggedIn = this.$store.state.loggedIn
         if (loggedIn) {
             this.$refs.formSchema.form().validate((valid) => {
