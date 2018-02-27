@@ -84,7 +84,7 @@ export default {
       }
     },
     fetch_entity (entity, entityId, contactID) {
-      var url = '/en/'+ entity + '/' + entityId + '/contact_details/' + contactID
+      var url = '/en/' + entity + '/' + entityId + '/contact_details/' + contactID
       HTTP.get(url)
         .then(response => {
           this.model = response.data.result

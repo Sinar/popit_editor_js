@@ -8,6 +8,7 @@ import Logout from '@/components/Logout'
 import Organization from '@/components/Organization'
 import OrganizationEdit from '@/components/OrganizationEdit'
 import ContactDetail from '@/components/ContactDetail'
+import ContactDetailEdit from '@/components/ContactDetailEdit'
 
 Vue.use(Router)
 
@@ -52,6 +53,11 @@ export default new Router({
       path: '/:entity/:entity_id/contact_details',
       name: 'ContactDetailsCreate',
       component: ContactDetail
+    },
+    {
+      path: '/:entity/:entity_id/contact_details/edit/:contact_id',
+      name: 'ContactDetailsEdit',
+      component: ContactDetailEdit
     }
   ]
 })
