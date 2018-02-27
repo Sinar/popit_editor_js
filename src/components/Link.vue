@@ -45,7 +45,7 @@ export default {
     submit (e) {
       var personId = this.$route.params.entity_id
       var entity = this.$route.params.entity
-      var url = '/en/'+ entity + '/' + personId + "/links"
+      var url = '/en/' + entity + '/' + personId + '/links'
       var loggedIn = this.$store.state.loggedIn
       if (loggedIn) {
         this.$refs.formSchema.form().validate((valid) => {

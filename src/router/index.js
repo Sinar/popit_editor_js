@@ -9,6 +9,8 @@ import Organization from '@/components/Organization'
 import OrganizationEdit from '@/components/OrganizationEdit'
 import ContactDetail from '@/components/ContactDetail'
 import ContactDetailEdit from '@/components/ContactDetailEdit'
+import Link from '@/components/Link'
+import LinkEdit from '@/components/LinkEdit'
 
 Vue.use(Router)
 
@@ -58,6 +60,16 @@ export default new Router({
       path: '/:entity/:entity_id/contact_details/edit/:contact_id',
       name: 'ContactDetailsEdit',
       component: ContactDetailEdit
+    },
+    {
+      path: '/:entity/:entity_id/links',
+      name: 'Links',
+      component: Link
+    },
+    {
+      path: '/:entity/:entity_id/links/edit/:link_id',
+      name: 'LinksEdit',
+      component: LinkEdit
     }
   ]
 })
