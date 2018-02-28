@@ -9,7 +9,7 @@
 import FormSchema from 'vue-json-schema'
 import schema from '../schema/person_form.json'
 import { HTTP } from '../http-common.js'
-import objectDiff from '../utils.js'
+import objectDiff from '../objDiff.js'
 
 FormSchema.setComponent('form', 'el-form', ({ vm }) => {
   const labelPosition = 'top'
