@@ -9,6 +9,7 @@
 import FormSchema from 'vue-json-schema'
 import schema from '../schema/person_form.json'
 import { HTTP } from '../http-common.js'
+import objectDiff from '../utils.js'
 
 FormSchema.setComponent('form', 'el-form', ({ vm }) => {
   const labelPosition = 'top'
@@ -38,7 +39,8 @@ export default {
   data () {
     return {
       schema: schema,
-      model: {}
+      model: {},
+      origData: {}
     }
   },
   watch: {
@@ -60,8 +62,11 @@ export default {
         this.$refs.formSchema.form().validate((valid) => {
           if (valid) {
             console.log(JSON.stringify(this.model))
+            console.log(JSON.stringify(this.origData))
+            var newObj = objectDiff(this.model)
+            console.log(JSON.stringify(newObj))
             this.$refs.formSchema.clearErrorMessage()
-            HTTP.put(url, this.model)
+            HTTP.put(url, newObj)
               .then(response => {
                 console.log(response)
               })
@@ -82,11 +87,21 @@ export default {
       HTTP.get(url)
         .then(response => {
           this.model = response.data.result
+          this.origData = response.data.result
           console.log(this.model)
         })
         .catch(e => {
           console.log(e)
         })
+    },
+    object_diff (obj) {
+      var newObj = {}
+      for (var key in obj) {
+        if (obj[key] !== '') {
+          newObj[key] = obj[key]
+        }
+      }
+      return newObj
     }
   },
   components: {
