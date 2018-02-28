@@ -62,7 +62,6 @@ export default {
         this.$refs.formSchema.form().validate((valid) => {
           if (valid) {
             console.log(JSON.stringify(this.model))
-            console.log(JSON.stringify(this.origData))
             var newObj = objectDiff(this.model)
             console.log(JSON.stringify(newObj))
             this.$refs.formSchema.clearErrorMessage()
