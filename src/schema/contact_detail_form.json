@@ -72,8 +72,6 @@
     }
   },
   "required": [
-    "value",
-    "type"
   ],
   "title": "Contact detail",
   "type": "object"

@@ -1,7 +1,7 @@
 <template>
   <el-card class="form">
     <form-schema ref="formSchema" :schema="schema" v-model="model">
-      <el-button type="primary" @click="submit">Create</el-button>
+      <el-button type="primary" @click="submit">Save</el-button>
     </form-schema>
   </el-card>
 </template>
@@ -9,6 +9,7 @@
 import FormSchema from 'vue-json-schema'
 import schema from '../schema/contact_detail_form.json'
 import { HTTP } from '../http-common.js'
+import objectDiff from '../objDiff.js'
 
 FormSchema.setComponent('form', 'el-form', ({ vm }) => {
   const labelPosition = 'top'
@@ -21,6 +22,7 @@ FormSchema.setComponent('form', 'el-form', ({ vm }) => {
     const required = field.required
     const message = field.title
     const trigger = 'blur'
+    console.log(field.name)
 
     rule[field.name] = { type, required, message, trigger }
   })
@@ -29,7 +31,7 @@ FormSchema.setComponent('form', 'el-form', ({ vm }) => {
 })
 
 FormSchema.setComponent('label', 'el-form-item', ({ field }) => ({
-  prop: field.title
+  prop: field.name
 }))
 
 FormSchema.setComponent('text', 'el-input')
@@ -57,6 +59,7 @@ export default {
   },
   methods: {
     submit (e) {
+      console.log(e)
       var entityId = this.$route.params.entity_id
       var entity = this.$route.params.entity
       var contactID = this.$route.params.contact_id
@@ -66,8 +69,10 @@ export default {
         this.$refs.formSchema.form().validate((valid) => {
           if (valid) {
             console.log(JSON.stringify(this.model))
+            var newObj = objectDiff(this.model)
+            console.log(JSON.stringify(newObj))
             this.$refs.formSchema.clearErrorMessage()
-            HTTP.put(url, this.model)
+            HTTP.put(url, newObj)
               .then(response => {
                 console.log(response)
               })
