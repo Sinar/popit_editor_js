@@ -30,7 +30,7 @@ FormSchema.setComponent('form', 'el-form', ({ vm }) => {
 })
 
 FormSchema.setComponent('label', 'el-form-item', ({ field }) => ({
-  prop: field.title
+  prop: field.name
 }))
 
 FormSchema.setComponent('text', 'el-input')
