@@ -15,6 +15,7 @@ import Membership from '@/components/Membership'
 import MembershipEdit from '@/components/MembershipEdit'
 import Post from '@/components/Post'
 import PostEdit from '@/components/PostEdit'
+import EntityList from '@/components/EntityList'
 
 Vue.use(Router)
 
@@ -94,6 +95,11 @@ export default new Router({
       path: '/posts/edit/:entity_id',
       name: 'PostEdit',
       component: PostEdit
+    },
+    {
+      path: '/:entity/list',
+      name: 'EntityList',
+      component: EntityList
     }
   ]
 })
