@@ -9,6 +9,7 @@
 import FormSchema from 'vue-json-schema'
 import schema from '../schema/person_form.json'
 import { HTTP } from '../http-common.js'
+import { getLanguage } from '../utils.js'
 
 FormSchema.setComponent('form', 'el-form', ({ vm }) => {
   const labelPosition = 'top'
@@ -43,7 +44,9 @@ export default {
   },
   methods: {
     submit (e) {
-      var url = '/en/persons/'
+      var language = getLanguage()
+
+      var url = '/' + language + '/persons/'
       var loggedIn = this.$store.state.loggedIn
       if (loggedIn) {
         this.$refs.formSchema.form().validate((valid) => {
