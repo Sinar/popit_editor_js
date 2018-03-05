@@ -11,6 +11,10 @@ import ContactDetail from '@/components/ContactDetail'
 import ContactDetailEdit from '@/components/ContactDetailEdit'
 import Link from '@/components/Link'
 import LinkEdit from '@/components/LinkEdit'
+import Membership from '@/components/Membership'
+import MembershipEdit from '@/components/MembershipEdit'
+import Post from '@/components/Post'
+import PostEdit from '@/components/PostEdit'
 
 Vue.use(Router)
 
@@ -70,6 +74,26 @@ export default new Router({
       path: '/:entity/:entity_id/links/edit/:link_id',
       name: 'LinksEdit',
       component: LinkEdit
+    },
+    {
+      path: '/memberships/create',
+      name: 'Membership',
+      component: Membership
+    },
+    {
+      path: '/memberships/edit/:entity_id',
+      name: 'MembershipEdit',
+      component: MembershipEdit
+    },
+    {
+      path: '/posts/create',
+      name: 'Post',
+      component: Post
+    },
+    {
+      path: '/posts/edit/:entity_id',
+      name: 'PostEdit',
+      component: PostEdit
     }
   ]
 })
