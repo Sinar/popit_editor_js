@@ -9,6 +9,7 @@
 import FormSchema from 'vue-json-schema'
 import schema from '../schema/contact_detail_form.json'
 import { HTTP } from '../http-common.js'
+import { getLanguage } from '../utils.js'
 
 FormSchema.setComponent('form', 'el-form', ({ vm }) => {
   const labelPosition = 'top'
@@ -45,7 +46,8 @@ export default {
     submit (e) {
       var entityId = this.$route.params.entity_id
       var entity = this.$route.params.entity
-      var url = '/en/' + entity + '/' + entityId + '/contact_details'
+      var language = getLanguage()
+      var url = '/' + language + '/' + entity + '/' + entityId + '/contact_details'
       var loggedIn = this.$store.state.loggedIn
       if (loggedIn) {
         this.$refs.formSchema.form().validate((valid) => {

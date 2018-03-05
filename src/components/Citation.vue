@@ -8,6 +8,8 @@
 <script>
 import FormSchema from 'vue-form-schema'
 import schema from '../schema/link_form.json'
+import { HTTP } from '../http-common.js'
+import { getLanguage } from '../utils.js'
 
 FormSchema.setComponent('form', 'el-form', ({ vm }) => {
   const labelPosition = 'top'
@@ -28,7 +30,7 @@ FormSchema.setComponent('form', 'el-form', ({ vm }) => {
 })
 
 FormSchema.setComponent('label', 'el-form-item', ({ field }) => ({
-  prop: field.title
+  prop: field.name
 }))
 
 FormSchema.setComponent('text', 'el-input')
@@ -45,7 +47,8 @@ export default {
         var entityId = this.$route.params.entity_id
         var entity = this.$route.params.entity
         var popitField = this.$route.params.field
-        var url = '/en/' + entity + '/' + entityId + '/citations/' + popitField
+        var language = getLanguage()
+        var url = '/' + language + '/' + entity + '/' + entityId + '/citations/' + popitField
         var loggedIn = this.$store.state.loggedIn
         if (loggedIn) {
             this.$refs.formSchema.form().validate((valid) => {

@@ -10,6 +10,7 @@ import FormSchema from 'vue-json-schema'
 import schema from '../schema/contact_detail_form.json'
 import { HTTP } from '../http-common.js'
 import objectDiff from '../objDiff.js'
+import { getLanguage } from '../utils.js'
 
 FormSchema.setComponent('form', 'el-form', ({ vm }) => {
   const labelPosition = 'top'
@@ -63,7 +64,8 @@ export default {
       var entityId = this.$route.params.entity_id
       var entity = this.$route.params.entity
       var contactID = this.$route.params.contact_id
-      var url = '/en/' + entity + '/' + entityId + '/contact_details/' + contactID
+      var language = getLanguage()
+      var url = '/' + language + '/' + entity + '/' + entityId + '/contact_details/' + contactID
       var loggedIn = this.$store.state.loggedIn
       if (loggedIn) {
         this.$refs.formSchema.form().validate((valid) => {
@@ -89,7 +91,8 @@ export default {
       }
     },
     fetch_entity (entity, entityId, contactID) {
-      var url = '/en/' + entity + '/' + entityId + '/contact_details/' + contactID
+      var language = getLanguage()
+      var url = '/' + language + '/' + entity + '/' + entityId + '/contact_details/' + contactID
       HTTP.get(url)
         .then(response => {
           this.model = response.data.result

@@ -8,6 +8,10 @@
 <script>
 import FormSchema from 'vue-form-schema'
 import schema from '../schema/link_form.json'
+import { HTTP } from '../http-common.js'
+import { getLanguage } from '../utils.js'
+import objectDiff from '../objDiff.js'
+
 
 FormSchema.setComponent('form', 'el-form', ({ vm }) => {
   const labelPosition = 'top'
@@ -28,7 +32,7 @@ FormSchema.setComponent('form', 'el-form', ({ vm }) => {
 })
 
 FormSchema.setComponent('label', 'el-form-item', ({ field }) => ({
-  prop: field.title
+  prop: field.name
 }))
 
 FormSchema.setComponent('text', 'el-input')
@@ -61,15 +65,18 @@ export default {
         var entityId = this.$route.params.entity_id
         var entity = this.$route.params.entity
         var fieldName = this.$route.params.field
-        var citationID = this.$route.params.citation_ud
-        var url = '/en/' + entity + '/' + entityId + '/citations/' + fieldName + '/' + citationID
+        var citationID = this.$route.params.citation_id
+        var language = getLanguage()
+        var url = '/' + language + '/' + entity + '/' + entityId + '/citations/' + fieldName + '/' + citationID
         var loggedIn = this.$store.state.loggedIn
         if (loggedIn) {
             this.$refs.formSchema.form().validate((valid) => {
             if (valid) {
                 console.log(JSON.stringify(this.model))
+                var newObj = objectDiff(this.model)
+                console.log(JSON.stringify(newObj))
                 this.$refs.formSchema.clearErrorMessage()
-                HTTP.put(url, this.model)
+                HTTP.put(url, newObj)
                 .then(response => {
                     console.log(response)
                 })
@@ -86,7 +93,8 @@ export default {
         }
       },
       fetch_entity (entity, entityId, fieldName, citationID) {
-        var url = '/en/'+ entity + '/' + entityId + '/citations/' + fieldName + '/' + citationID
+        var language = getLanguage()
+        var url = '/'+ language + '/'+ entity + '/' + entityId + '/citations/' + fieldName + '/' + citationID
         HTTP.get(url)
           .then(response => {
             this.model = response.data.result
