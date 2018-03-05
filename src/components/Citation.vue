@@ -6,7 +6,7 @@
   </el-card>
 </template>
 <script>
-import FormSchema from 'vue-form-schema'
+import FormSchema from 'vue-json-schema'
 import schema from '../schema/link_form.json'
 import { HTTP } from '../http-common.js'
 import { getLanguage } from '../utils.js'
@@ -37,43 +37,43 @@ FormSchema.setComponent('text', 'el-input')
 
 export default {
   data () {
-      return {
-          schema: schema,
-          model: {}
-      }
+    return {
+      schema: schema,
+      model: {}
+    }
   },
   methods: {
-      submit (e) {
-        var entityId = this.$route.params.entity_id
-        var entity = this.$route.params.entity
-        var popitField = this.$route.params.field
-        var language = getLanguage()
-        var url = '/' + language + '/' + entity + '/' + entityId + '/citations/' + popitField
-        var loggedIn = this.$store.state.loggedIn
-        if (loggedIn) {
-            this.$refs.formSchema.form().validate((valid) => {
-            if (valid) {
-                console.log(JSON.stringify(this.model))
-                this.$refs.formSchema.clearErrorMessage()
-                HTTP.post(url, this.model)
-                .then(response => {
-                    console.log(response)
-                })
-                .catch(e => {
-                    console.log(e)
-                })
-            } else {
-                this.$refs.formSchema.setErrorMessage('Please Fill in the form')
-                return false
-            }
-            })
-        } else {
-            this.$route.push('/login')
-        }
+    submit (e) {
+      var entityId = this.$route.params.entity_id
+      var entity = this.$route.params.entity
+      var popitField = this.$route.params.field
+      var language = getLanguage()
+      var url = '/' + language + '/' + entity + '/' + entityId + '/citations/' + popitField
+      var loggedIn = this.$store.state.loggedIn
+      if (loggedIn) {
+        this.$refs.formSchema.form().validate((valid) => {
+          if (valid) {
+            console.log(JSON.stringify(this.model))
+            this.$refs.formSchema.clearErrorMessage()
+            HTTP.post(url, this.model)
+              .then(response => {
+                console.log(response)
+              })
+              .catch(e => {
+                console.log(e)
+              })
+          } else {
+            this.$refs.formSchema.setErrorMessage('Please Fill in the form')
+            return false
+          }
+        })
+      } else {
+        this.$route.push('/login')
       }
+    }
   },
   components: {
-      FormSchema
+    FormSchema
   }
 }
 </script>

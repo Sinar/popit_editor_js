@@ -16,6 +16,8 @@ import MembershipEdit from '@/components/MembershipEdit'
 import Post from '@/components/Post'
 import PostEdit from '@/components/PostEdit'
 import EntityList from '@/components/EntityList'
+import Citation from '@/components/Citation'
+import CitationEdit from '@/components/CitationEdit'
 
 Vue.use(Router)
 
@@ -100,6 +102,16 @@ export default new Router({
       path: '/:entity/list',
       name: 'EntityList',
       component: EntityList
+    },
+    {
+      path: '/:entity/:entity_id/citations/:field',
+      name: 'Citation',
+      component: Citation
+    },
+    {
+      path: '/:entity/:entity+id/citations/:field/:citation_id',
+      name: 'CitationEdit',
+      component: CitationEdit
     }
   ]
 })
