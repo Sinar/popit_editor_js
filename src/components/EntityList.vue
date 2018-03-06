@@ -13,6 +13,11 @@
         </template>
       </el-table-column>
     </el-table>
+    <el-pagination
+      layout="prev, pager, next"
+      @current-change="handlePageChange"
+      :total="total">
+    </el-pagination>
   </el-card>
 </template>
 <script>
@@ -75,6 +80,9 @@ export default {
       var entity = this.$route.params.entity
       var url = '/' + entity + '/edit/' + row.id
       this.$router.push(url)
+    },
+    handlePageChange (page) {
+      this.fetchEntity(page)
     }
   }
 }
