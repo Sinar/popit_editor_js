@@ -1,17 +1,19 @@
 <template>
-  <el-table :data="data">
-    <el-table-column
-      prop="name"
-      label="Name">
-    </el-table-column>
-    <el-table-column
-      fixed="right"
-      label="Operation">
-      <template slot-scope="scope">
-        <el-button @click="handleEdit(scope.row)">Edit</el-button>
-      </template>
-    </el-table-column>
-  </el-table>
+  <el-card class="entities">
+    <el-table :data="data">
+      <el-table-column
+        prop="name"
+        label="Name">
+      </el-table-column>
+      <el-table-column
+        fixed="right"
+        label="Operation">
+        <template slot-scope="scope">
+          <el-button @click="handleEdit(scope.row)">Edit</el-button>
+        </template>
+      </el-table-column>
+    </el-table>
+  </el-card>
 </template>
 <script>
 import { HTTP } from '../http-common.js'
@@ -77,3 +79,10 @@ export default {
   }
 }
 </script>
+<style scoped>
+  .entities {
+    width: 1200px;
+    text-align: left;
+    margin: auto;
+  }
+</style>

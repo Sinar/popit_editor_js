@@ -1,5 +1,6 @@
 <template>
   <div>
+    <el-card>
     <h1>This is the editor for Popit, Sinar Project's people and organization Data service</h1>
     <h2>To get started, start with the links below</h2>
      <ul>
@@ -13,6 +14,7 @@
      <ul>
        <li><a href="https://github.com/Sinar/popit_editor_js/issues">github page</a></li>
      </ul>
+    </el-card>
   </div>
 </template>
 <script>
