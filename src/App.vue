@@ -2,7 +2,6 @@
   <el-container>
     <el-header>
       <el-row>
-        
         <el-col :span="8" :offset="8" id="header"><img src="https://sinarproject.org/logo.png"></el-col>
         <el-col :span="8">
           <div id="language">
