@@ -1,9 +1,13 @@
 <template>
-  <el-card class="form">
-    <form-schema ref="formSchema" :schema="schema" v-model="model">
-      <el-button type="primary" @click="submit">Edit</el-button>
-    </form-schema>
-  </el-card>
+  <div>
+    <el-button type="primary" @click="createContact">Create Contacts</el-button>
+    <el-button type="primary" @click="createLink">Create Link</el-button>
+    <el-card class="form">
+      <form-schema ref="formSchema" :schema="schema" v-model="model">
+        <el-button type="primary" @click="submit">Edit</el-button>
+      </form-schema>
+    </el-card>
+  </div>
 </template>
 <script>
 import FormSchema from 'vue-json-schema'
@@ -93,6 +97,16 @@ export default {
         .catch(e => {
           console.log(e)
         })
+    },
+    createContact () {
+      var entityId = this.$route.params.entity_id
+      var url = '/organizations/' + entityId + '/contact_details/create'
+      this.$router.push(url)
+    },
+    createLink () {
+      var entityId = this.$route.params.entity_id
+      var url = '/organizations/' + entityId + '/links/create'
+      this.$router.push(url)
     }
   },
   components: {
