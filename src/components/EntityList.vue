@@ -1,6 +1,7 @@
 <template>
   <el-card class="entities">
-    <el-table :data="data">
+    <el-table :data="data"
+      v-loading="loading">
       <el-table-column
         prop="name"
         label="Name">
@@ -30,7 +31,8 @@ export default {
       page: 1,
       pageSize: 10,
       total: 0,
-      nameField: 'name'
+      nameField: 'name',
+      loading: true
     }
   },
   watch: {
@@ -43,6 +45,7 @@ export default {
   },
   methods: {
     fetchEntity (page) {
+      this.loading = true
       var entity = this.$route.params.entity
       var language = localStorage.getItem('language')
       if (language === null) {
@@ -73,6 +76,7 @@ export default {
           }
           console.log(temp)
           this.data.push(temp)
+          this.loading = false
         }
       })
     },
