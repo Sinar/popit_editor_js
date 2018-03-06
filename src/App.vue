@@ -1,21 +1,30 @@
 <template>
   <el-container>
-    <el-header id="header">
-      <img src="https://sinarproject.org/logo.png">
+    <el-header>
+      <el-row>
+        
+        <el-col :span="8" :offset="8" id="header"><img src="https://sinarproject.org/logo.png"></el-col>
+        <el-col :span="8">
+          <div id="language">
+            <el-dropdown @command="handleCommand">
+              <el-button>
+                {{ languageName }}<i class="el-icon-arrow-down el-icon--right"></i>
+              </el-button>
+              <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item command="ms">Malay</el-dropdown-item>
+                <el-dropdown-item command="en">English</el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
+          </div>
+        </el-col>
+      </el-row>
     </el-header>
     <el-main>
-      <div id="language">
-        <el-dropdown @command="handleCommand">
-          <el-button>
-            {{ languageName }}<i class="el-icon-arrow-down el-icon--right"></i>
-          </el-button>
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item command="ms">Malay</el-dropdown-item>
-            <el-dropdown-item command="en">English</el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>
-        </div>
-        <router-view/>
+      <el-row>
+        <el-col :span="24">
+          <router-view/>
+        </el-col>
+      </el-row>
     </el-main>
   </el-container>
 </template>
