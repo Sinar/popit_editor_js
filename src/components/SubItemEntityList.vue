@@ -65,7 +65,7 @@ export default {
         switch (subEntity) {
           case 'contact_details':
             nameField = 'label'
-            break;
+            break
           case 'links':
             nameField = 'url'
             break
@@ -77,7 +77,7 @@ export default {
             break
           default:
             nameField = 'label'
-            break;
+            break
         }
         this.data = []
         for (var item of data) {

@@ -18,6 +18,7 @@ import PostEdit from '@/components/PostEdit'
 import EntityList from '@/components/EntityList'
 import Citation from '@/components/Citation'
 import CitationEdit from '@/components/CitationEdit'
+import SubItemEntityList from '@/components/SubItemEntityList'
 
 Vue.use(Router)
 
@@ -109,9 +110,14 @@ export default new Router({
       component: Citation
     },
     {
-      path: '/:entity/:entity+id/citations/:field/edit/:citation_id',
+      path: '/:entity/:entity_id/citations/:field/edit/:citation_id',
       name: 'CitationEdit',
       component: CitationEdit
+    },
+    {
+      path: '/:entity/:entity_id/:sub_item/list',
+      name: 'SubItemEntityList',
+      component: SubItemEntityList
     }
   ]
 })
