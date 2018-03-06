@@ -59,7 +59,7 @@ export default new Router({
       component: OrganizationEdit
     },
     {
-      path: '/:entity/:entity_id/contact_details',
+      path: '/:entity/:entity_id/contact_details/create',
       name: 'ContactDetailsCreate',
       component: ContactDetail
     },
@@ -69,7 +69,7 @@ export default new Router({
       component: ContactDetailEdit
     },
     {
-      path: '/:entity/:entity_id/links',
+      path: '/:entity/:entity_id/links/create',
       name: 'Links',
       component: Link
     },
@@ -104,12 +104,12 @@ export default new Router({
       component: EntityList
     },
     {
-      path: '/:entity/:entity_id/citations/:field',
+      path: '/:entity/:entity_id/citations/:field/create',
       name: 'Citation',
       component: Citation
     },
     {
-      path: '/:entity/:entity+id/citations/:field/:citation_id',
+      path: '/:entity/:entity+id/citations/:field/edit/:citation_id',
       name: 'CitationEdit',
       component: CitationEdit
     }
