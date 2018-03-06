@@ -1,21 +1,23 @@
 <template>
-  <div>
-    <div id="app">
-    <img src="https://sinarproject.org/logo.png">
-    </div>
-    <div id="language">
-    <el-dropdown @command="handleCommand">
-      <el-button>
-        {{ languageName }}<i class="el-icon-arrow-down el-icon--right"></i>
-      </el-button>
-      <el-dropdown-menu slot="dropdown">
-        <el-dropdown-item command="ms">Malay</el-dropdown-item>
-        <el-dropdown-item command="en">English</el-dropdown-item>
-      </el-dropdown-menu>
-    </el-dropdown>
-    </div>
-    <router-view/>
-  </div>
+  <el-container>
+    <el-header id="header">
+      <img src="https://sinarproject.org/logo.png">
+    </el-header>
+    <el-main>
+      <div id="language">
+        <el-dropdown @command="handleCommand">
+          <el-button>
+            {{ languageName }}<i class="el-icon-arrow-down el-icon--right"></i>
+          </el-button>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item command="ms">Malay</el-dropdown-item>
+            <el-dropdown-item command="en">English</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
+        </div>
+        <router-view/>
+    </el-main>
+  </el-container>
 </template>
 
 <script>
@@ -62,5 +64,8 @@ export default {
 }
 #language {
   text-align: right;
+}
+#header {
+  text-align: center;
 }
 </style>
