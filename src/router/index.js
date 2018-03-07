@@ -115,7 +115,7 @@ export default new Router({
       component: CitationEdit
     },
     {
-      path: '/:entity/:entity_id/:sub_item/list',
+      path: '/:entity/:entity_id/:sub_entity/list',
       name: 'SubItemEntityList',
       component: SubItemEntityList
     }
