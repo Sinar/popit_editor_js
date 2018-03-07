@@ -1,9 +1,9 @@
 <template>
   <div>
-    <el-button type="primary" @click="createContact">Create Contacts</el-button>
-    <el-button type="primary" @click="createLink">Create Link</el-button>
     <el-button type="primary" @click="listContactDetails">Contact Details</el-button>
-    <el-button type="primary" @click="listLinks">Links List</el-button>
+    <el-button type="primary" @click="listLinks">Links</el-button>
+    <el-button type="primary" @click="listOtherNames">Other Names</el-button>
+    <el-button type="primary" @click="listIdentifiers">Identifiers</el-button>
     <el-card class="form">
       <form-schema ref="formSchema" :schema="schema" v-model="model">
         <el-button type="primary" @click="submit">Edit</el-button>
@@ -118,6 +118,16 @@ export default {
     listLinks () {
       var entityId = this.$route.params.entity_id
       var url = '/organizations/' + entityId + '/links/list'
+      this.$router.push(url)
+    },
+    listOtherNames () {
+      var entityId = this.$route.params.entity_id
+      var url = '/organizations/' + entityId + '/other_names/list'
+      this.$router.push(url)
+    },
+    listIdentifiers () {
+      var entityId = this.$route.params.entity_id
+      var url = '/organizations/' + entityId + '/identifiers/list'
       this.$router.push(url)
     }
   },
