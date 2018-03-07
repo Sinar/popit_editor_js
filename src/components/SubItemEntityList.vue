@@ -1,4 +1,6 @@
 <template>
+  <div>
+  <el-button type="primary" @click="handleCreate">Create</el-button>
   <el-card class="entities">
     <el-table :data="data"
       v-loading="loading">
@@ -20,6 +22,7 @@
       :total="total">
     </el-pagination>
   </el-card>
+  </div>
 </template>
 <script>
 import { HTTP } from '../http-common.js'
@@ -96,11 +99,20 @@ export default {
     },
     handleEdit (row) {
       var entity = this.$route.params.entity
-      var url = '/' + entity + '/edit/' + row.id
+      var entityID = this.$route.params.entity_id
+      var subEntity = this.$route.params.sub_entity
+      var url = '/' + entity + '/' + entityID + '/' + subEntity + '/edit/' + row.id
       this.$router.push(url)
     },
     handlePageChange (page) {
       this.fetchEntity(page)
+    },
+    handleCreate () {
+      var entity = this.$route.params.entity
+      var entityID = this.$route.params.entity_id
+      var subEntity = this.$route.params.sub_entity
+      var url = '/' + entity + '/' + entityID + '/' + subEntity + '/create/'
+      this.$router.push(url)
     }
   }
 }
