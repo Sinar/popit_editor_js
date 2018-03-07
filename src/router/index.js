@@ -19,6 +19,10 @@ import EntityList from '@/components/EntityList'
 import Citation from '@/components/Citation'
 import CitationEdit from '@/components/CitationEdit'
 import SubItemEntityList from '@/components/SubItemEntityList'
+import Identifier from '@/components/Identifier'
+import IdentifierEdit from '@/components/IdentifierEdit'
+import OtherName from '@/components/OtherName'
+import OtherNameEdit from '@/components/OtherNameEdit'
 
 Vue.use(Router)
 
@@ -118,6 +122,36 @@ export default new Router({
       path: '/:entity/:entity_id/:sub_entity/list',
       name: 'SubItemEntityList',
       component: SubItemEntityList
+    },
+    {
+      path: '/:entity/:entity_id/identifiers/create',
+      name: 'IdentifierCreate',
+      component: Identifier
+    },
+    {
+      path: '/:entity/:entity_id/identifiers/edit/:identifier_id',
+      name: 'IdentifierEdit',
+      component: IdentifierEdit
+    },
+    {
+      path: '/:entity/:entity_id/other_names/create',
+      name: 'OtherNameCreate',
+      component: OtherName
+    },
+    {
+      path: '/:entity/:entity_id/other_names/edit/:other_name_id',
+      name: 'OtherNameEdit',
+      component: OtherNameEdit
+    },
+    {
+      path: '/:entity/:entity_id/other_labels/create',
+      name: 'OtherNameCreate',
+      component: OtherName
+    },
+    {
+      path: '/:entity/:entity_id/other_labels/edit/:other_name_id',
+      name: 'OtherNameEdit',
+      component: OtherNameEdit
     }
   ]
 })

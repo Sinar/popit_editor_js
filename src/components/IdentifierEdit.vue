@@ -48,24 +48,24 @@ export default {
     '$route': function (to, from) {
       var entity = this.$route.params.entity
       var entityId = this.$route.params.entity_id
-      var contactID = this.$route.params.contact_id
-      this.fetch_entity(entity, entityId, contactID)
+      var identifierID = this.$route.params.identifier_id
+      this.fetch_entity(entity, entityId, identifierID)
     }
   },
   created () {
     var entity = this.$route.params.entity
     var entityId = this.$route.params.entity_id
-    var contactID = this.$route.params.contact_id
-    this.fetch_entity(entity, entityId, contactID)
+    var identifierID = this.$route.params.identifier_id
+    this.fetch_entity(entity, entityId, identifierID)
   },
   methods: {
     submit (e) {
       console.log(e)
       var entityId = this.$route.params.entity_id
       var entity = this.$route.params.entity
-      var contactID = this.$route.params.contact_id
+      var identifierID = this.$route.params.identifier_id
       var language = getLanguage()
-      var url = '/' + language + '/' + entity + '/' + entityId + '/identifiers/' + contactID
+      var url = '/' + language + '/' + entity + '/' + entityId + '/identifiers/' + identifierID
       var loggedIn = this.$store.state.loggedIn
       if (loggedIn) {
         this.$refs.formSchema.form().validate((valid) => {
@@ -90,9 +90,9 @@ export default {
         this.$route.push('/login')
       }
     },
-    fetch_entity (entity, entityId, contactID) {
+    fetch_entity (entity, entityId, identifierID) {
       var language = getLanguage()
-      var url = '/' + language + '/' + entity + '/' + entityId + '/identifiers/' + contactID
+      var url = '/' + language + '/' + entity + '/' + entityId + '/identifiers/' + identifierID
       HTTP.get(url)
         .then(response => {
           this.model = response.data.result
