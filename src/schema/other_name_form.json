@@ -86,7 +86,6 @@
     }
   },
   "required": [
-    "name"
   ],
   "title": "Other name",
   "type": "object"

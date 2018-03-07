@@ -20,7 +20,6 @@
     }
   },
   "required": [
-    "identifier"
   ],
   "title": "Identifier",
   "type": "object"
