@@ -1,0 +1,93 @@
+{
+  "description": "An alternate or former name",
+  "id": "http://www.popoloproject.com/schemas/other_name.json#",
+  "properties": {
+    "additional_name": {
+      "attrs": {
+        "placeholder": "One or more secondary given names",
+        "title": "One or more secondary given names"
+      },
+      "title": "One or more secondary given names",
+      "type": "string"
+    },
+    "end_date": {
+      "attrs": {
+        "placeholder": "The date on which the name was abandoned",
+        "title": "The date on which the name was abandoned"
+      },
+      "pattern": "^[0-9]{4}(-[0-9]{2}){0,2}$",
+      "title": "The date on which the name was abandoned",
+      "type": "string"
+    },
+    "family_name": {
+      "attrs": {
+        "placeholder": "One or more family names",
+        "title": "One or more family names"
+      },
+      "title": "One or more family names",
+      "type": "string"
+    },
+    "given_name": {
+      "attrs": {
+        "placeholder": "One or more primary given names",
+        "title": "One or more primary given names"
+      },
+      "title": "One or more primary given names",
+      "type": "string"
+    },
+    "honorific_prefix": {
+      "attrs": {
+        "placeholder": "One or more honorifics preceding a person's name",
+        "title": "One or more honorifics preceding a person's name"
+      },
+      "title": "One or more honorifics preceding a person's name",
+      "type": "string"
+    },
+    "honorific_suffix": {
+      "attrs": {
+        "placeholder": "One or more honorifics following a person's name",
+        "title": "One or more honorifics following a person's name"
+      },
+      "title": "One or more honorifics following a person's name",
+      "type": "string"
+    },
+    "name": {
+      "attrs": {
+        "placeholder": "An alternate or former name",
+        "title": "An alternate or former name"
+      },
+      "title": "An alternate or former name",
+      "type": "string"
+    },
+    "note": {
+      "attrs": {
+        "placeholder": "A note, e.g. 'Birth name'",
+        "title": "A note, e.g. 'Birth name'"
+      },
+      "title": "A note, e.g. 'Birth name'",
+      "type": "string"
+    },
+    "patronymic_name": {
+      "attrs": {
+        "placeholder": "One or more patronymic names",
+        "title": "One or more patronymic names"
+      },
+      "title": "One or more patronymic names",
+      "type": "string"
+    },
+    "start_date": {
+      "attrs": {
+        "placeholder": "The date on which the name was adopted",
+        "title": "The date on which the name was adopted"
+      },
+      "pattern": "^[0-9]{4}(-[0-9]{2}){0,2}$",
+      "title": "The date on which the name was adopted",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "title": "Other name",
+  "type": "object"
+}
