@@ -1,9 +1,16 @@
 <template>
+  <div>
+  <el-button type="primary" @click="createContact">Create Contacts</el-button>
+  <el-button type="primary" @click="createLink">Create Link</el-button>
+  <el-button type="primary" @click="listContactDetails">Contact Details</el-button>
+  <el-button type="primary" @click="listLinks">Links List</el-button>
+
   <el-card class="form">
     <form-schema ref="formSchema" :schema="schema" v-model="model">
       <el-button type="primary" @click="submit">Edit</el-button>
     </form-schema>
   </el-card>
+  </div>
 </template>
 <script>
 import FormSchema from 'vue-json-schema'
@@ -93,6 +100,26 @@ export default {
         .catch(e => {
           console.log(e)
         })
+    },
+    createContact () {
+      var entityId = this.$route.params.entity_id
+      var url = '/memberships/' + entityId + '/contact_details/create'
+      this.$router.push(url)
+    },
+    createLink () {
+      var entityId = this.$route.params.entity_id
+      var url = '/memberships/' + entityId + '/links/create'
+      this.$router.push(url)
+    },
+    listContactDetails () {
+      var entityId = this.$route.params.entity_id
+      var url = '/memberships/' + entityId + '/contact_details/list'
+      this.$router.push(url)
+    },
+    listLinks () {
+      var entityId = this.$route.params.entity_id
+      var url = '/memberships/' + entityId + '/links/list'
+      this.$router.push(url)
     }
   },
   components: {
