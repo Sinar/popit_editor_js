@@ -21,7 +21,8 @@
     <el-main>
       <el-row>
         <el-col :span="24">
-          <router-view/>
+          <router-view v-if="token" />
+          <login-form v-else />
         </el-col>
       </el-row>
     </el-main>
@@ -29,6 +30,8 @@
 </template>
 
 <script>
+import LoginForm from './components/Login.vue'
+
 export default {
   name: 'App',
   data: function () {
@@ -38,8 +41,12 @@ export default {
       languageKey: {
         en: 'English',
         ms: 'Malay'
-      }
+      },
+      token: localStorage.getItem('token')
     }
+  },
+  components: {
+    LoginForm
   },
   created: function () {
     var language = localStorage.getItem('language')
