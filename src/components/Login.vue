@@ -1,6 +1,8 @@
 <template>
     <el-card class="form">
         <el-form ref="form" :model="form">
+            <h2>Login</h2>
+            <p>Please login before proceeding</p>
             <el-form-item label="Auth Token">
                 <el-input v-model="form.authToken"></el-input>
             </el-form-item>
