@@ -57,8 +57,18 @@ export default {
             HTTP.post(url, this.model)
               .then(response => {
                 console.log(response)
+                var otherNameID = response.data.result.id
+                var otherNameURL = '/' + entity + '/' + entityID + '/other_names/edit' + linkID
+                this.$route.push(otherNameURL)
               })
               .catch(e => {
+                console.log(e.response.data)
+                console.log(e.response.data.errors)
+                var errData = e.response.data.errors
+                for (var errorKey in errData) {
+                  var errMsg = 'Error in ' + errorKey + ': ' + errData[errorKey]
+                  this.$message.error(errMsg)
+                }
                 console.log(e)
               })
           } else {

@@ -56,6 +56,7 @@ export default {
             HTTP.post(url, this.model)
               .then(response => {
                 console.log(response)
+                this.$route.push('/persons/edit/' + response.data.result.id)
               })
               .catch(e => {
                 console.log(e.response.data)

@@ -77,8 +77,18 @@ export default {
             HTTP.put(url, newObj)
               .then(response => {
                 console.log(response)
+                var linkID = response.data.result.id
+                var linkURL = '/' + entity + '/' + entityID + '/links/edit' + linkID
+                this.$route.push(linkURL)
               })
               .catch(e => {
+                console.log(e.response.data)
+                console.log(e.response.data.errors)
+                var errData = e.response.data.errors
+                for (var errorKey in errData) {
+                  var errMsg = 'Error in ' + errorKey + ': ' + errData[errorKey]
+                  this.$message.error(errMsg)
+                }
                 console.log(e)
               })
           } else {

@@ -77,8 +77,18 @@ export default {
             HTTP.put(url, newObj)
               .then(response => {
                 console.log(response)
+                var contactID = response.data.result.id
+                var contactURL = '/' + entity + '/' + entityID + '/contact_details/edit' + contactID
+                this.$route.push(contactURL) 
               })
               .catch(e => {
+                console.log(e.response.data)
+                console.log(e.response.data.errors)
+                var errData = e.response.data.errors
+                for (var errorKey in errData) {
+                  var errMsg = 'Error in ' + errorKey + ': ' + errData[errorKey]
+                  this.$message.error(errMsg)
+                }
                 console.log(e)
               })
           } else {

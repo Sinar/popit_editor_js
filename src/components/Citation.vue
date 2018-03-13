@@ -58,8 +58,18 @@ export default {
             HTTP.post(url, this.model)
               .then(response => {
                 console.log(response)
+                var citationId = response.data.result.id
+                var editUrl = '/' + entity + '/' + entityId + '/citations' + fieldName + '/edit/' + citationId
+                this.$route.push(editUrl)
               })
               .catch(e => {
+                console.log(e.response.data)
+                console.log(e.response.data.errors)
+                var errData = e.response.data.errors
+                for (var errorKey in errData) {
+                  var errMsg = 'Error in ' + errorKey + ': ' + errData[errorKey]
+                  this.$message.error(errMsg)
+                }
                 console.log(e)
               })
           } else {

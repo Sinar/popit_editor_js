@@ -77,8 +77,18 @@ export default {
             HTTP.put(url, newObj)
               .then(response => {
                 console.log(response)
+                var identifierID = response.data.result.id
+                var identifierURL = '/' + entity + '/' + entityID + '/identifiers/edit' + identifierID
+                this.$route.push(identifierURL)
               })
               .catch(e => {
+                console.log(e.response.data)
+                console.log(e.response.data.errors)
+                var errData = e.response.data.errors
+                for (var errorKey in errData) {
+                  var errMsg = 'Error in ' + errorKey + ': ' + errData[errorKey]
+                  this.$message.error(errMsg)
+                }
                 console.log(e)
               })
           } else {
@@ -96,7 +106,7 @@ export default {
       HTTP.get(url)
         .then(response => {
           this.model = response.data.result
-          console.log(this.model)
+          console.log(this.model) 
         })
         .catch(e => {
           console.log(e)

@@ -77,8 +77,16 @@ export default {
             HTTP.put(url, newObj)
               .then(response => {
                 console.log(response)
+                this.$route.push('/persons/edit/' + response.data.result.id)
               })
               .catch(e => {
+                console.log(e.response.data)
+                console.log(e.response.data.errors)
+                var errData = e.response.data.errors
+                for (var errorKey in errData) {
+                  var errMsg = 'Error in ' + errorKey + ': ' + errData[errorKey]
+                  this.$message.error(errMsg)
+                }
                 console.log(e)
               })
           } else {
