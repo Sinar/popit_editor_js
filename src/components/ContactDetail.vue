@@ -58,7 +58,7 @@ export default {
               .then(response => {
                 console.log(response)
                 var contactID = response.data.result.id
-                var contactURL = '/' + entity + '/' + entityID + '/contact_details/edit' + contactID
+                var contactURL = '/' + entity + '/' + entityId + '/contact_details/edit' + contactID
                 this.$route.push(contactURL)
               })
               .catch(e => {

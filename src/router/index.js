@@ -23,6 +23,8 @@ import Identifier from '@/components/Identifier'
 import IdentifierEdit from '@/components/IdentifierEdit'
 import OtherName from '@/components/OtherName'
 import OtherNameEdit from '@/components/OtherNameEdit'
+import CitationList from '@/components/CitationList'
+import CitationFieldList from '@/components/CitationFieldList'
 
 Vue.use(Router)
 
@@ -152,6 +154,16 @@ export default new Router({
       path: '/:entity/:entity_id/other_labels/edit/:other_name_id',
       name: 'OtherNameEdit',
       component: OtherNameEdit
+    },
+    {
+      path: '/:entity/:entity_id/citations/:field/list/',
+      name: 'CitationList',
+      component: CitationList
+    },
+    {
+      path: '/:entity/:entity_id/citations/',
+      name: 'CitationFieldList',
+      component: CitationFieldList
     }
   ]
 })

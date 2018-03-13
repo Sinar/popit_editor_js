@@ -78,7 +78,7 @@ export default {
               .then(response => {
                 console.log(response)
                 var identifierID = response.data.result.id
-                var identifierURL = '/' + entity + '/' + entityID + '/identifiers/edit' + identifierID
+                var identifierURL = '/' + entity + '/' + entityId + '/identifiers/edit' + identifierID
                 this.$route.push(identifierURL)
               })
               .catch(e => {
@@ -106,7 +106,7 @@ export default {
       HTTP.get(url)
         .then(response => {
           this.model = response.data.result
-          console.log(this.model) 
+          console.log(this.model)
         })
         .catch(e => {
           console.log(e)

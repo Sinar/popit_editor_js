@@ -59,7 +59,7 @@ export default {
               .then(response => {
                 console.log(response)
                 var citationId = response.data.result.id
-                var editUrl = '/' + entity + '/' + entityId + '/citations' + fieldName + '/edit/' + citationId
+                var editUrl = '/' + entity + '/' + entityId + '/citations' + popitField + '/edit/' + citationId
                 this.$route.push(editUrl)
               })
               .catch(e => {

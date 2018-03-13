@@ -50,7 +50,6 @@ export default {
       this.loading = true
       var entity = this.$route.params.entity
       var entityID = this.$route.params.entity_id
-      var field = this.$route.params.field
       var language = localStorage.getItem('language')
       if (language === null) {
         language = 'en'
@@ -81,7 +80,7 @@ export default {
       var entity = this.$route.params.entity
       var entityID = this.$route.params.entity_id
       var field = this.$route.params.field
-      var url = '/' + entity + '/' + entityID + '/citations/' + field 
+      var url = '/' + entity + '/' + entityID + '/citations/' + field
       this.$router.push(url)
     },
     handlePageChange (page) {

@@ -58,7 +58,7 @@ export default {
               .then(response => {
                 console.log(response)
                 var identifierID = response.data.result.id
-                var identifierURL = '/' + entity + '/' + entityID + '/identifiers/edit' + identifierID
+                var identifierURL = '/' + entity + '/' + entityId + '/identifiers/edit' + identifierID
                 this.$route.push(identifierURL)
               })
               .catch(e => {

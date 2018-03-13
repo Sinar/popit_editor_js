@@ -44,10 +44,10 @@ export default {
   },
   methods: {
     submit (e) {
-      var personId = this.$route.params.entity_id
+      var entityId = this.$route.params.entity_id
       var entity = this.$route.params.entity
       var language = getLanguage()
-      var url = '/' + language + '/' + entity + '/' + personId + '/links'
+      var url = '/' + language + '/' + entity + '/' + entityId + '/links'
       var loggedIn = this.$store.state.loggedIn
       if (loggedIn) {
         this.$refs.formSchema.form().validate((valid) => {
@@ -58,7 +58,7 @@ export default {
               .then(response => {
                 console.log(response)
                 var linkID = response.data.result.id
-                var linkURL = '/' + entity + '/' + entityID + '/links/edit' + linkID
+                var linkURL = '/' + entity + '/' + entityId + '/links/edit' + linkID
                 this.$route.push(linkURL)
               })
               .catch(e => {

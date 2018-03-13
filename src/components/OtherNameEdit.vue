@@ -78,7 +78,7 @@ export default {
               .then(response => {
                 console.log(response)
                 var otherNameID = response.data.result.id
-                var otherNameURL = '/' + entity + '/' + entityID + '/other_names/edit' + linkID
+                var otherNameURL = '/' + entity + '/' + entityId + '/other_names/edit' + otherNameID
                 this.$route.push(otherNameURL)
               })
               .catch(e => {

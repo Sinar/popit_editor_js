@@ -78,7 +78,7 @@ export default {
               .then(response => {
                 console.log(response)
                 var linkID = response.data.result.id
-                var linkURL = '/' + entity + '/' + entityID + '/links/edit' + linkID
+                var linkURL = '/' + entity + '/' + entityId + '/links/edit' + linkID
                 this.$route.push(linkURL)
               })
               .catch(e => {
