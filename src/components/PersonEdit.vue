@@ -4,6 +4,7 @@
     <el-button type="primary" @click="listLinks">Links</el-button>
     <el-button type="primary" @click="listOtherNames">Other Names</el-button>
     <el-button type="primary" @click="listIdentifiers">Identifiers</el-button>
+    <el-button type="primary" @click="listCitations">Citations</el-button>
     <el-card class="form">
       <form-schema ref="formSchema" :schema="schema" v-model="model">
         <el-button type="primary" @click="submit">Edit</el-button>
@@ -148,6 +149,11 @@ export default {
     listIdentifiers () {
       var entityId = this.$route.params.entity_id
       var url = '/persons/' + entityId + '/identifiers/list'
+      this.$router.push(url)
+    },
+    listCitations () {
+      var entityId = this.$route.params.entity_id
+      var url = '/persons/' + entityId + '/citations/list'
       this.$router.push(url)
     }
   },
