@@ -79,7 +79,7 @@ export default {
                 console.log(response)
                 var linkID = response.data.result.id
                 var linkURL = '/' + entity + '/' + entityId + '/links/edit' + linkID
-                this.$route.push(linkURL)
+                this.$router.push(linkURL)
               })
               .catch(e => {
                 console.log(e.response.data)

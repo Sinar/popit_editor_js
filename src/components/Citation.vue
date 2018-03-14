@@ -60,7 +60,7 @@ export default {
                 console.log(response)
                 var citationId = response.data.result.id
                 var editUrl = '/' + entity + '/' + entityId + '/citations' + popitField + '/edit/' + citationId
-                this.$route.push(editUrl)
+                this.$router.push(editUrl)
               })
               .catch(e => {
                 console.log(e.response.data)
@@ -78,7 +78,7 @@ export default {
           }
         })
       } else {
-        this.$route.push('/login')
+        this.$router.push('/login')
       }
     }
   },

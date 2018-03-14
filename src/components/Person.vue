@@ -56,17 +56,19 @@ export default {
             HTTP.post(url, this.model)
               .then(response => {
                 console.log(response)
-                this.$route.push('/persons/edit/' + response.data.result.id)
+                this.$router.push('/persons/edit/' + response.data.result.id)
               })
               .catch(e => {
-                console.log(e.response.data)
-                console.log(e.response.data.errors)
-                var errData = e.response.data.errors
-                for (var errorKey in errData) {
-                  var errMsg = 'Error in ' + errorKey + ': ' + errData[errorKey]
-                  this.$message.error(errMsg)
-                }
                 console.log(e)
+                if ('response' in e) {
+                  console.log(e.response.data)
+                  console.log(e.response.data.errors)
+                  var errData = e.response.data.errors
+                  for (var errorKey in errData) {
+                    var errMsg = 'Error in ' + errorKey + ': ' + errData[errorKey]
+                    this.$message.error(errMsg)
+                  }
+                }
               })
           } else {
             this.$refs.formSchema.setErrorMessage('Please Fill in the form')
@@ -74,7 +76,7 @@ export default {
           }
         })
       } else {
-        this.$route.push('/login')
+        this.$router.push('/login')
       }
     }
   },

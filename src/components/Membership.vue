@@ -55,7 +55,7 @@ export default {
             HTTP.post(url, this.model)
               .then(response => {
                 console.log(response)
-                this.$route.push('/memberships/edit/' + response.data.result.id)
+                this.$router.push('/memberships/edit/' + response.data.result.id)
               })
               .catch(e => {
                 console.log(e.response.data)
@@ -73,7 +73,7 @@ export default {
           }
         })
       } else {
-        this.$route.push('/login')
+        this.$router.push('/login')
       }
     }
   },

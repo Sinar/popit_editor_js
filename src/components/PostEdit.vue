@@ -75,7 +75,7 @@ export default {
             HTTP.put(url, newObj)
               .then(response => {
                 console.log(response)
-                this.$route.push('/posts/edit/' + response.data.result.id)
+                this.$router.push('/posts/edit/' + response.data.result.id)
               })
               .catch(e => {
                 console.log(e.response.data)

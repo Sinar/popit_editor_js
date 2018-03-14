@@ -59,7 +59,7 @@ export default {
                 console.log(response)
                 var identifierID = response.data.result.id
                 var identifierURL = '/' + entity + '/' + entityId + '/identifiers/edit' + identifierID
-                this.$route.push(identifierURL)
+                this.$router.push(identifierURL)
               })
               .catch(e => {
                 console.log(e.response.data)
@@ -77,7 +77,7 @@ export default {
           }
         })
       } else {
-        this.$route.push('/login')
+        this.$router.push('/login')
       }
     }
   },

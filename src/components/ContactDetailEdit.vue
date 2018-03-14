@@ -79,7 +79,7 @@ export default {
                 console.log(response)
                 var contactID = response.data.result.id
                 var contactURL = '/' + entity + '/' + entityId + '/contact_details/edit' + contactID
-                this.$route.push(contactURL)
+                this.$router.push(contactURL)
               })
               .catch(e => {
                 console.log(e.response.data)
@@ -97,7 +97,7 @@ export default {
           }
         })
       } else {
-        this.$route.push('/login')
+        this.$router.push('/login')
       }
     },
     fetch_entity (entity, entityId, contactID) {
