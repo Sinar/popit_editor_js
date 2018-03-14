@@ -2,6 +2,14 @@
   "description": "A group with a common purpose or reason for existence that goes beyond the set of people belonging to it",
   "id": "http://www.popoloproject.com/schemas/organization.json#",
   "properties": {
+    "name": {
+      "attrs": {
+        "placeholder": "A primary name, e.g. a legally recognized name",
+        "title": "A primary name, e.g. a legally recognized name"
+      },
+      "title": "A primary name, e.g. a legally recognized name",
+      "type": "string"
+    },
     "abstract": {
       "attrs": {
         "placeholder": "A one-line description of an organization",
@@ -76,14 +84,6 @@
       },
       "format": "uri",
       "title": "A URL of an image",
-      "type": "string"
-    },
-    "name": {
-      "attrs": {
-        "placeholder": "A primary name, e.g. a legally recognized name",
-        "title": "A primary name, e.g. a legally recognized name"
-      },
-      "title": "A primary name, e.g. a legally recognized name",
       "type": "string"
     },
     "parent_id": {

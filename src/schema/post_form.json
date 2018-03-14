@@ -2,32 +2,6 @@
   "description": "A position that exists independent of the person holding it",
   "id": "http://www.popoloproject.com/schemas/post.json#",
   "properties": {
-    "area_id": {
-      "attrs": {
-        "placeholder": "The ID of the geographic area to which this post is related",
-        "title": "The ID of the geographic area to which this post is related"
-      },
-      "title": "The ID of the geographic area to which this post is related",
-      "type": "string"
-    },
-    "created_at": {
-      "attrs": {
-        "placeholder": "The time at which the resource was created",
-        "title": "The time at which the resource was created"
-      },
-      "format": "date-time",
-      "title": "The time at which the resource was created",
-      "type": "string"
-    },
-    "end_date": {
-      "attrs": {
-        "placeholder": "The date on which the post was eliminated",
-        "title": "The date on which the post was eliminated"
-      },
-      "pattern": "^[0-9]{4}(-[0-9]{2}){0,2}$",
-      "title": "The date on which the post was eliminated",
-      "type": "string"
-    },
     "id": {
       "attrs": {
         "placeholder": "The post's unique identifier",
@@ -58,6 +32,32 @@
         "title": "The function that the holder of the post fulfills"
       },
       "title": "The function that the holder of the post fulfills",
+      "type": "string"
+    },
+    "area_id": {
+      "attrs": {
+        "placeholder": "The ID of the geographic area to which this post is related",
+        "title": "The ID of the geographic area to which this post is related"
+      },
+      "title": "The ID of the geographic area to which this post is related",
+      "type": "string"
+    },
+    "created_at": {
+      "attrs": {
+        "placeholder": "The time at which the resource was created",
+        "title": "The time at which the resource was created"
+      },
+      "format": "date-time",
+      "title": "The time at which the resource was created",
+      "type": "string"
+    },
+    "end_date": {
+      "attrs": {
+        "placeholder": "The date on which the post was eliminated",
+        "title": "The date on which the post was eliminated"
+      },
+      "pattern": "^[0-9]{4}(-[0-9]{2}){0,2}$",
+      "title": "The date on which the post was eliminated",
       "type": "string"
     },
     "start_date": {
