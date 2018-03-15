@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import LandingPage from '@/components/LandingPage'
-import Person from '@/components/Person'
 import PersonEdit from '@/components/PersonEdit'
 import Login from '@/components/Login'
 import Logout from '@/components/Logout'
@@ -25,6 +24,8 @@ import OtherName from '@/components/OtherName'
 import OtherNameEdit from '@/components/OtherNameEdit'
 import CitationList from '@/components/CitationList'
 import CitationFieldList from '@/components/CitationFieldList'
+import BaseEntityCreate from '@/components/BaseEntityCreate'
+import personSchema from '../schema/person_form.json'
 
 Vue.use(Router)
 
@@ -38,7 +39,11 @@ export default new Router({
     {
       path: '/persons/create',
       name: 'Person',
-      component: Person
+      component: BaseEntityCreate,
+      props: {
+        schema: personSchema,
+        entities: 'persons'
+      }
     },
     {
       path: '/persons/edit/:entity_id',
