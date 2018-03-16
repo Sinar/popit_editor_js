@@ -1,16 +1,24 @@
 <template>
-  <div>
-  <el-button type="primary" v-if="hasContact" @click="listContactDetails">Contact Details</el-button>
-  <el-button type="primary" @click="listLinks">Links</el-button>
-  <el-button type="primary" v-if="hasOtherName" @click="listOtherNames">Other Names</el-button>
-  <el-button type="primary" v-if="hasIdentifier" @click="listIdentifiers">Identifiers</el-button>
-  <el-button type="primary" @click="listCitations">Citations</el-button>
-  <el-card class="form">
-    <form-schema ref="formSchema" :schema="schema" v-model="model">
-      <el-button type="primary" @click="submit">Edit</el-button>
-    </form-schema>
-  </el-card>
-  </div>
+  <el-main>
+    <el-row>
+      <el-col :span="24">
+        <el-button type="primary" v-if="hasContact" @click="listContactDetails">Contact Details</el-button>
+        <el-button type="primary" @click="listLinks">Links</el-button>
+        <el-button type="primary" v-if="hasOtherName" @click="listOtherNames">Other Names</el-button>
+        <el-button type="primary" v-if="hasIdentifier" @click="listIdentifiers">Identifiers</el-button>
+        <el-button type="primary" @click="listCitations">Citations</el-button>
+      </el-col>
+    </el-row>
+    <el-row>
+      <el-col :span="24">
+        <el-card class="form">
+          <form-schema ref="formSchema" :schema="schema" v-model="model">
+            <el-button type="primary" @click="submit">Edit</el-button>
+          </form-schema>
+        </el-card>
+      </el-col>
+    </el-row>
+  </el-main>
 </template>
 <script>
 import FormSchema from 'vue-json-schema'

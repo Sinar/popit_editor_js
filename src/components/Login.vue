@@ -1,4 +1,5 @@
 <template>
+  <el-row>
     <el-card class="form">
         <el-form ref="form" :model="form">
             <h2>Login</h2>
@@ -11,6 +12,7 @@
             </el-form-item>
         </el-form>
     </el-card>
+  </el-row>
 </template>
 <script>
 export default {

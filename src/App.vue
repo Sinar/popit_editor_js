@@ -19,12 +19,8 @@
       </el-row>
     </el-header>
     <el-main>
-      <el-row>
-        <el-col :span="24">
-          <router-view v-if="token" />
-          <login-form v-else />
-        </el-col>
-      </el-row>
+      <router-view v-if="token" />
+      <login-form v-else />
     </el-main>
   </el-container>
 </template>
