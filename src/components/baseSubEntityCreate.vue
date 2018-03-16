@@ -66,7 +66,7 @@ export default {
               .then(response => {
                 console.log(response)
                 var subEntityID = response.data.result.id
-                var nextURL = '/' + entity + '/' + entityId + '/' + this.subEntity + '/edit' + subEntityID
+                var nextURL = '/' + entity + '/' + entityId + '/' + this.subEntity + '/edit/' + subEntityID
                 this.$router.push(nextURL)
               })
               .catch(e => {
