@@ -3,16 +3,10 @@ import Router from 'vue-router'
 import LandingPage from '@/components/LandingPage'
 import Login from '@/components/Login'
 import Logout from '@/components/Logout'
-import Organization from '@/components/Organization'
-import OrganizationEdit from '@/components/OrganizationEdit'
 import ContactDetail from '@/components/ContactDetail'
 import ContactDetailEdit from '@/components/ContactDetailEdit'
 import Link from '@/components/Link'
 import LinkEdit from '@/components/LinkEdit'
-import Membership from '@/components/Membership'
-import MembershipEdit from '@/components/MembershipEdit'
-import Post from '@/components/Post'
-import PostEdit from '@/components/PostEdit'
 import EntityList from '@/components/EntityList'
 import Citation from '@/components/Citation'
 import CitationEdit from '@/components/CitationEdit'
@@ -26,6 +20,9 @@ import CitationFieldList from '@/components/CitationFieldList'
 import BaseEntityCreate from '@/components/BaseEntityCreate'
 import BaseEntityEdit from '@/components/BaseEntityEdit'
 import personSchema from '../schema/person_form.json'
+import organizationSchema from '../schema/organization_form.json'
+import membershipSchema from '../schema/membership_form.json'
+import postSchema from '../schema/post_form.json'
 
 Vue.use(Router)
 
@@ -70,12 +67,23 @@ export default new Router({
     {
       path: '/organizations/create',
       name: 'Organization',
-      component: Organization
+      component: BaseEntityCreate,
+      props: {
+        schema: organizationSchema,
+        entities: 'organizations'
+      }
     },
     {
       path: '/organizations/edit/:entity_id',
       name: 'OrganizationEdit',
-      component: OrganizationEdit
+      component: BaseEntityEdit,
+      props: {
+        schema: organizationSchema,
+        entity: 'organizations',
+        hasContact: true,
+        hasIdentifier: true,
+        hasOtherName: true
+      }
     },
     {
       path: '/:entity/:entity_id/contact_details/create',
@@ -100,22 +108,40 @@ export default new Router({
     {
       path: '/memberships/create',
       name: 'Membership',
-      component: Membership
+      component: BaseEntityCreate,
+      props: {
+        schema: membershipSchema,
+        entities: 'memberships'
+      }
     },
     {
       path: '/memberships/edit/:entity_id',
       name: 'MembershipEdit',
-      component: MembershipEdit
+      component: BaseEntityEdit,
+      props: {
+        schema: membershipSchema,
+        entity: 'memberships',
+        hasContact: true
+      }
     },
     {
       path: '/posts/create',
       name: 'Post',
-      component: Post
+      component: BaseEntityCreate,
+      props: {
+        schema: postSchema,
+        entities: 'posts'
+      }
     },
     {
       path: '/posts/edit/:entity_id',
       name: 'PostEdit',
-      component: PostEdit
+      component: BaseEntityEdit,
+      props: {
+        schema: postSchema,
+        entity: 'posts',
+        hasContact: true
+      }
     },
     {
       path: '/:entity/list',

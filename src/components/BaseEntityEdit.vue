@@ -123,6 +123,7 @@ export default {
     fetch_entity (entityId) {
       var language = getLanguage()
       var url = '/' + language + '/' + this.entity + '/' + entityId
+      console.log(url)
       HTTP.get(url)
         .then(response => {
           this.model = response.data.result
@@ -155,6 +156,16 @@ export default {
     listCitations () {
       var entityId = this.$route.params.entity_id
       var url = '/' + this.entity + '/' + entityId + '/citations/list'
+      this.$router.push(url)
+    },
+    listOtherNames () {
+      var entityId = this.$route.params.entity_id
+      var url = '/' + this.entity + '/' + entityId + '/other_names/list'
+      this.$router.push(url)
+    },
+    listIdentifiers () {
+      var entityId = this.$route.params.entity_id
+      var url = '/' + this.entity + '/' + entityId + '/identifiers/list'
       this.$router.push(url)
     }
   },
