@@ -1,11 +1,13 @@
 <template>
-  <el-row>
-    <el-card class="form">
-      <form-schema ref="formSchema" :schema="schema" v-model="model">
-        <el-button type="primary" @click="submit">Create</el-button>
-      </form-schema>
-    </el-card>
-  </el-row>
+  <el-main>
+    <el-row>
+      <el-card class="form">
+        <form-schema ref="formSchema" :schema="schema" v-model="model">
+          <el-button type="primary" @click="submit">Create</el-button>
+        </form-schema>
+      </el-card>
+    </el-row>
+  </el-main>
 </template>
 <script>
 import FormSchema from 'vue-json-schema'

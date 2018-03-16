@@ -18,10 +18,8 @@
         </el-col>
       </el-row>
     </el-header>
-    <el-main>
-      <router-view v-if="token" />
-      <login-form v-else />
-    </el-main>
+    <router-view v-if="token" />
+    <login-form v-else />
   </el-container>
 </template>
 

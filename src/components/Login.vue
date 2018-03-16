@@ -1,6 +1,7 @@
 <template>
-  <el-row>
-    <el-card class="form">
+  <el-main>
+    <el-row>
+      <el-card class="form">
         <el-form ref="form" :model="form">
             <h2>Login</h2>
             <p>Please login before proceeding</p>
@@ -11,8 +12,9 @@
                 <el-button type="primary" @click="addToken">Add Token</el-button>
             </el-form-item>
         </el-form>
-    </el-card>
-  </el-row>
+      </el-card>
+    </el-row>
+  </el-main>
 </template>
 <script>
 export default {
