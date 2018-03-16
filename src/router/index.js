@@ -3,18 +3,10 @@ import Router from 'vue-router'
 import LandingPage from '@/components/LandingPage'
 import Login from '@/components/Login'
 import Logout from '@/components/Logout'
-import ContactDetail from '@/components/ContactDetail'
-import ContactDetailEdit from '@/components/ContactDetailEdit'
-import Link from '@/components/Link'
-import LinkEdit from '@/components/LinkEdit'
 import EntityList from '@/components/EntityList'
 import Citation from '@/components/Citation'
 import CitationEdit from '@/components/CitationEdit'
 import SubItemEntityList from '@/components/SubItemEntityList'
-import Identifier from '@/components/Identifier'
-import IdentifierEdit from '@/components/IdentifierEdit'
-import OtherName from '@/components/OtherName'
-import OtherNameEdit from '@/components/OtherNameEdit'
 import CitationList from '@/components/CitationList'
 import CitationFieldList from '@/components/CitationFieldList'
 import BaseEntityCreate from '@/components/BaseEntityCreate'
@@ -23,6 +15,12 @@ import personSchema from '../schema/person_form.json'
 import organizationSchema from '../schema/organization_form.json'
 import membershipSchema from '../schema/membership_form.json'
 import postSchema from '../schema/post_form.json'
+import baseSubEntityCreate from '@/components/baseSubEntityCreate'
+import baseSubEntityEdit from '@/components/baseSubEntityEdit'
+import contactDetailSchema from '../schema/contact_detail_form.json'
+import linkSchema from '../schema/link_form.json'
+import otherNameSchema from '../schema/other_name_form.json'
+import identifierSchema from '../schema/identifier_form.json'
 
 Vue.use(Router)
 
@@ -88,22 +86,38 @@ export default new Router({
     {
       path: '/:entity/:entity_id/contact_details/create',
       name: 'ContactDetailsCreate',
-      component: ContactDetail
+      component: baseSubEntityCreate,
+      props: {
+        schema: contactDetailSchema,
+        subEntity: 'contact_details'
+      }
     },
     {
-      path: '/:entity/:entity_id/contact_details/edit/:contact_id',
+      path: '/:entity/:entity_id/contact_details/edit/:subentity_id',
       name: 'ContactDetailsEdit',
-      component: ContactDetailEdit
+      component: baseSubEntityEdit,
+      props: {
+        schema: contactDetailSchema,
+        subEntity: 'contact_details'
+      }
     },
     {
       path: '/:entity/:entity_id/links/create',
       name: 'Links',
-      component: Link
+      component: baseSubEntityCreate,
+      props: {
+        schema: linkSchema,
+        subEntity: 'links'
+      }
     },
     {
-      path: '/:entity/:entity_id/links/edit/:link_id',
+      path: '/:entity/:entity_id/links/edit/:subentity_id',
       name: 'LinksEdit',
-      component: LinkEdit
+      component: baseSubEntityEdit,
+      props: {
+        schema: linkSchema,
+        subEntity: 'links'
+      }
     },
     {
       path: '/memberships/create',
@@ -166,32 +180,38 @@ export default new Router({
     {
       path: '/:entity/:entity_id/identifiers/create',
       name: 'IdentifierCreate',
-      component: Identifier
+      component: baseSubEntityCreate,
+      props: {
+        schema: identifierSchema,
+        subEntity: 'identifiers'
+      }
     },
     {
-      path: '/:entity/:entity_id/identifiers/edit/:identifier_id',
+      path: '/:entity/:entity_id/identifiers/edit/:subentity_id',
       name: 'IdentifierEdit',
-      component: IdentifierEdit
+      component: baseSubEntityEdit,
+      props: {
+        schema: identifierSchema,
+        subEntity: 'identifiers'
+      }
     },
     {
       path: '/:entity/:entity_id/other_names/create',
       name: 'OtherNameCreate',
-      component: OtherName
+      component: baseSubEntityCreate,
+      props: {
+        schema: otherNameSchema,
+        subEntity: 'other_names'
+      }
     },
     {
-      path: '/:entity/:entity_id/other_names/edit/:other_name_id',
+      path: '/:entity/:entity_id/other_names/edit/:subentity_id',
       name: 'OtherNameEdit',
-      component: OtherNameEdit
-    },
-    {
-      path: '/:entity/:entity_id/other_labels/create',
-      name: 'OtherNameCreate',
-      component: OtherName
-    },
-    {
-      path: '/:entity/:entity_id/other_labels/edit/:other_name_id',
-      name: 'OtherNameEdit',
-      component: OtherNameEdit
+      component: BaseEntityEdit,
+      props: {
+        schema: otherNameSchema,
+        subEntity: 'other_names'
+      }
     },
     {
       path: '/:entity/:entity_id/citations/:field/list/',
