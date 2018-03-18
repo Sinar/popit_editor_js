@@ -93,8 +93,8 @@ export default {
           }
           console.log(temp)
           this.data.push(temp)
-          this.loading = false
         }
+        this.loading = false
       })
     },
     handleEdit (row) {
