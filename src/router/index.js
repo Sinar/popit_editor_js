@@ -15,8 +15,8 @@ import personSchema from '../schema/person_form.json'
 import organizationSchema from '../schema/organization_form.json'
 import membershipSchema from '../schema/membership_form.json'
 import postSchema from '../schema/post_form.json'
-import baseSubEntityCreate from '@/components/baseSubEntityCreate'
-import baseSubEntityEdit from '@/components/baseSubEntityEdit'
+import BaseSubEntityCreate from '@/components/BaseSubEntityCreate'
+import BaseSubEntityEdit from '@/components/BaseSubEntityEdit'
 import contactDetailSchema from '../schema/contact_detail_form.json'
 import linkSchema from '../schema/link_form.json'
 import otherNameSchema from '../schema/other_name_form.json'
@@ -86,7 +86,7 @@ export default new Router({
     {
       path: '/:entity/:entity_id/contact_details/create',
       name: 'ContactDetailsCreate',
-      component: baseSubEntityCreate,
+      component: BaseSubEntityCreate,
       props: {
         schema: contactDetailSchema,
         subEntity: 'contact_details'
@@ -95,7 +95,7 @@ export default new Router({
     {
       path: '/:entity/:entity_id/contact_details/edit/:subentity_id',
       name: 'ContactDetailsEdit',
-      component: baseSubEntityEdit,
+      component: BaseSubEntityEdit,
       props: {
         schema: contactDetailSchema,
         subEntity: 'contact_details'
@@ -104,7 +104,7 @@ export default new Router({
     {
       path: '/:entity/:entity_id/links/create',
       name: 'Links',
-      component: baseSubEntityCreate,
+      component: BaseSubEntityCreate,
       props: {
         schema: linkSchema,
         subEntity: 'links'
@@ -113,7 +113,7 @@ export default new Router({
     {
       path: '/:entity/:entity_id/links/edit/:subentity_id',
       name: 'LinksEdit',
-      component: baseSubEntityEdit,
+      component: BaseSubEntityEdit,
       props: {
         schema: linkSchema,
         subEntity: 'links'
@@ -180,7 +180,7 @@ export default new Router({
     {
       path: '/:entity/:entity_id/identifiers/create',
       name: 'IdentifierCreate',
-      component: baseSubEntityCreate,
+      component: BaseSubEntityCreate,
       props: {
         schema: identifierSchema,
         subEntity: 'identifiers'
@@ -189,7 +189,7 @@ export default new Router({
     {
       path: '/:entity/:entity_id/identifiers/edit/:subentity_id',
       name: 'IdentifierEdit',
-      component: baseSubEntityEdit,
+      component: BaseSubEntityEdit,
       props: {
         schema: identifierSchema,
         subEntity: 'identifiers'
@@ -198,7 +198,7 @@ export default new Router({
     {
       path: '/:entity/:entity_id/other_names/create',
       name: 'OtherNameCreate',
-      component: baseSubEntityCreate,
+      component: BaseSubEntityCreate,
       props: {
         schema: otherNameSchema,
         subEntity: 'other_names'
