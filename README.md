@@ -5,6 +5,12 @@
 ## Build Setup
 
 ``` bash
+# setup environment for production, use the next export for testing
+export NODE_ENV=production
+
+# or for testing export testing instead!
+export NODE_ENV=development
+
 # install dependencies
 npm install
 
