@@ -34,15 +34,6 @@
       "title": "An organization category, e.g. committee",
       "type": "string"
     },
-    "created_at": {
-      "attrs": {
-        "placeholder": "The time at which the resource was created",
-        "title": "The time at which the resource was created"
-      },
-      "format": "date-time",
-      "title": "The time at which the resource was created",
-      "type": "string"
-    },
     "description": {
       "attrs": {
         "placeholder": "An extended description of an organization",
@@ -92,15 +83,6 @@
         "title": "The ID of the organization that contains this organization"
       },
       "title": "The ID of the organization that contains this organization",
-      "type": "string"
-    },
-    "updated_at": {
-      "attrs": {
-        "placeholder": "The time at which the resource was last modified",
-        "title": "The time at which the resource was last modified"
-      },
-      "format": "date-time",
-      "title": "The time at which the resource was last modified",
       "type": "string"
     }
   },

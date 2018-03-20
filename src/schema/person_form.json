@@ -59,15 +59,6 @@
       "title": "A date of birth",
       "type": "string"
     },
-    "created_at": {
-      "attrs": {
-        "placeholder": "The time at which the resource was created",
-        "title": "The time at which the resource was created"
-      },
-      "format": "date-time",
-      "title": "The time at which the resource was created",
-      "type": "string"
-    },
     "death_date": {
       "attrs": {
         "placeholder": "A date of death",
@@ -151,16 +142,6 @@
         "title": "A name to use in a lexicographically ordered list"
       },
       "title": "A name to use in a lexicographically ordered list",
-      "type": "string"
-    },
-    
-    "updated_at": {
-      "attrs": {
-        "placeholder": "The time at which the resource was last modified",
-        "title": "The time at which the resource was last modified"
-      },
-      "format": "date-time",
-      "title": "The time at which the resource was last modified",
       "type": "string"
     }
   },
