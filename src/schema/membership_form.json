@@ -50,15 +50,6 @@
       "title": "The ID of the geographic area to which this membership is related",
       "type": "string"
     },
-    "created_at": {
-      "attrs": {
-        "placeholder": "The time at which the resource was created",
-        "title": "The time at which the resource was created"
-      },
-      "format": "date-time",
-      "title": "The time at which the resource was created",
-      "type": "string"
-    },
     "end_date": {
       "attrs": {
         "placeholder": "The date on which the relationship ended",
@@ -93,15 +84,6 @@
       },
       "pattern": "^[0-9]{4}((-[0-9]{2}){0,2}|(-[0-9]{2}){2}T[0-9]{2}(:[0-9]{2}){0,2}(Z|[+-][0-9]{2}(:[0-9]{2})?))$",
       "title": "The date on which the relationship began",
-      "type": "string"
-    },
-    "updated_at": {
-      "attrs": {
-        "placeholder": "The time at which the resource was last modified",
-        "title": "The time at which the resource was last modified"
-      },
-      "format": "date-time",
-      "title": "The time at which the resource was last modified",
       "type": "string"
     }
   },
