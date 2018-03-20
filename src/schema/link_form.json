@@ -2,21 +2,30 @@
   "$schema": "http://json-schema.org/draft-03/schema#",
   "id": "http://www.popoloproject.com/schemas/link.json#",
   "title": "Link",
-  "description": "A URL",
+  "description": "A url describing the current object",
   "type": "object",
   "properties": {
     "url": {
-      "description": "A URL",
+      "attrs": {
+        "placeholder": "The url"
+      },
       "type": "string",
-      "format": "uri"
+      "format": "uri",
+      "title": "A URL"
     },
     "note": {
-      "description": "A note, e.g. 'Wikipedia page'",
-      "type": "string"
+      "attrs": {
+        "placeholder": "A note, e.g. 'Wikipedia page'"
+      },
+      "type": "string",
+      "title": "Note"
     },
     "field": {
-      "description": "Field of this data that the url link to",
-      "type": "string"
+      "attrs": {
+        "placeholder": "Field of this data that the url link to"
+      },
+      "type": "string",
+      "title": "Field Cited"
     }
   },
   "required": []
