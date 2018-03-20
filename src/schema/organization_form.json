@@ -2,6 +2,14 @@
   "description": "A group with a common purpose or reason for existence that goes beyond the set of people belonging to it",
   "id": "http://www.popoloproject.com/schemas/organization.json#",
   "properties": {
+    "id": {
+      "attrs": {
+        "placeholder": "The organization's unique identifier",
+        "title": "The organization's unique identifier"
+      },
+      "title": "The organization's unique identifier",
+      "type": "string"
+    },
     "name": {
       "attrs": {
         "placeholder": "A primary name, e.g. a legally recognized name",
@@ -10,12 +18,29 @@
       "title": "A primary name, e.g. a legally recognized name",
       "type": "string"
     },
+    "image": {
+      "attrs": {
+        "placeholder": "A URL of an image",
+        "title": "A URL of an image"
+      },
+      "format": "uri",
+      "title": "A URL of an image",
+      "type": "string"
+    },
     "abstract": {
       "attrs": {
         "placeholder": "A one-line description of an organization",
         "title": "A one-line description of an organization"
       },
       "title": "A one-line description of an organization",
+      "type": "string"
+    },
+    "parent_id": {
+      "attrs": {
+        "placeholder": "The ID of the organization that contains this organization",
+        "title": "The ID of the organization that contains this organization"
+      },
+      "title": "The ID of the organization that contains this organization",
       "type": "string"
     },
     "area_id": {
@@ -58,31 +83,6 @@
       },
       "pattern": "^[0-9]{4}(-[0-9]{2}){0,2}$",
       "title": "A date of founding",
-      "type": "string"
-    },
-    "id": {
-      "attrs": {
-        "placeholder": "The organization's unique identifier",
-        "title": "The organization's unique identifier"
-      },
-      "title": "The organization's unique identifier",
-      "type": "string"
-    },
-    "image": {
-      "attrs": {
-        "placeholder": "A URL of an image",
-        "title": "A URL of an image"
-      },
-      "format": "uri",
-      "title": "A URL of an image",
-      "type": "string"
-    },
-    "parent_id": {
-      "attrs": {
-        "placeholder": "The ID of the organization that contains this organization",
-        "title": "The ID of the organization that contains this organization"
-      },
-      "title": "The ID of the organization that contains this organization",
       "type": "string"
     }
   },
