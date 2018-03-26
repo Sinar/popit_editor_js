@@ -14,6 +14,7 @@
         <el-card class="form">
           <form-schema ref="formSchema" :schema="schema" v-model="model">
             <el-button type="primary" @click="submit">Edit</el-button>
+            <el-button type="danger" @click="deleteEntity">Delete</el-button>
           </form-schema>
         </el-card>
       </el-col>
@@ -167,6 +168,21 @@ export default {
       var entityId = this.$route.params.entity_id
       var url = '/' + this.entity + '/' + entityId + '/identifiers/list'
       this.$router.push(url)
+    },
+    deleteEntity () {
+      var entityId = this.$route.params.entity_id
+      var language = getLanguage()
+      var url = '/' + language + '/' + this.entity + '/' + entityId
+      console.log(url)
+      HTTP.delete(url)
+        .then(response => {
+          console.log(response)
+          var nextURL = '/' + this.entity + '/list'
+          this.$router.push(nextURL)
+        })
+        .catch(e => {
+          console.log(e)
+        })
     }
   },
   components: {

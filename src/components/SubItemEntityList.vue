@@ -26,6 +26,7 @@
 </template>
 <script>
 import { HTTP } from '../http-common.js'
+import { getLanguage } from '../utils.js'
 
 export default {
   data () {
@@ -113,6 +114,20 @@ export default {
       var subEntity = this.$route.params.sub_entity
       var url = '/' + entity + '/' + entityID + '/' + subEntity + '/create/'
       this.$router.push(url)
+    },
+    handleDelete (row) {
+      var subEntity = this.$route.params.sub_entity
+      var language = getLanguage()
+      var url = '/' + language + '/' + this.entity + '/' + subEntity + '/edit/' + row.id
+      HTTP.delete(url)
+        .then(response => {
+          console.log(response)
+          var nextURL = '/' + this.entity + '/' + subEntity + '/list'
+          this.$router.push(nextURL)
+        })
+        .catch(e => {
+          console.log(e)
+        })
     }
   }
 }

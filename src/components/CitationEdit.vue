@@ -2,6 +2,7 @@
   <el-card class="form">
     <form-schema ref="formSchema" :schema="schema" v-model="model">
       <el-button type="primary" @click="submit">Create</el-button>
+      <el-button type="danger" @click="deleteCitation">Delete</el-button>
     </form-schema>
   </el-card>
 </template>
@@ -108,6 +109,23 @@ export default {
         .then(response => {
           this.model = response.data.result
           console.log(this.model)
+        })
+        .catch(e => {
+          console.log(e)
+        })
+    },
+    deleteCitation () {
+      var entityId = this.$route.params.entity_id
+      var entity = this.$route.params.entity
+      var fieldName = this.$route.params.field
+      var citationID = this.$route.params.citation_id
+      var language = getLanguage()
+      var url = '/' + language + '/' + entity + '/' + entityId + '/citations/' + fieldName + '/' + citationID
+      HTTP.delete(url)
+        .then(response => {
+          console.log(response)
+          var nextUrl = '/' + entity + '/' + entityId + '/citations/' + fieldName + '/list/'
+          this.$router.push(nextUrl)
         })
         .catch(e => {
           console.log(e)

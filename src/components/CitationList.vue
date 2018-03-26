@@ -13,6 +13,7 @@
         label="Operation">
         <template slot-scope="scope">
           <el-button @click="handleEdit(scope.row)">Edit</el-button>
+          <el-button type="danger" @click="handleDelete(scope.row)">Delete</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -26,6 +27,7 @@
 </template>
 <script>
 import { HTTP } from '../http-common.js'
+import { getLanguage } from '../utils.js'
 
 export default {
   data () {
@@ -96,6 +98,22 @@ export default {
       var field = this.$route.params.field
       var url = '/' + entity + '/' + entityID + '/citations/' + field + '/create/'
       this.$router.push(url)
+    },
+    handleDelete (row) {
+      var entity = this.$route.params.entity
+      var entityID = this.$route.params.entity_id
+      var field = this.$route.params.field
+      var language = getLanguage()
+      var url = '/' + language + '/' + entity + '/' + entityID + '/citations/' + field + '/' + row.id
+      HTTP.delete(url)
+        .then(response => {
+          console.log(response)
+          var nextUrl = '/' + entity + '/' + entityID + '/citations/' + field + '/list/'
+          this.$router.push(nextUrl)
+        })
+        .catch(e => {
+          console.log(e)
+        })
     }
   }
 }

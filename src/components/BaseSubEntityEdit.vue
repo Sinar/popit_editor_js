@@ -113,6 +113,23 @@ export default {
         .catch(e => {
           console.log(e)
         })
+    },
+    deleteEntity () {
+      var language = getLanguage()
+      var entityId = this.$route.params.entity_id
+      var entity = this.$route.params.entity
+      var subEntityID = this.$route.params.subentity_id
+      var url = '/' + language + '/' + entity + '/' + entityId + '/' + this.subEntity + '/' + subEntityID
+      console.log(url)
+      HTTP.delete(url)
+        .then(response => {
+          console.log(response)
+          var nextURL = '/' + entity + '/' + entityId + '/' + this.subEntity + '/list'
+          this.$router.push(nextURL)
+        })
+        .catch(e => {
+          console.log(e)
+        })
     }
   },
   components: {
