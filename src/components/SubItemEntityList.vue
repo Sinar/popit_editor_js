@@ -116,13 +116,14 @@ export default {
       this.$router.push(url)
     },
     handleDelete (row) {
+      var entity = this.$route.params.entity
       var subEntity = this.$route.params.sub_entity
       var language = getLanguage()
-      var url = '/' + language + '/' + this.entity + '/' + subEntity + '/edit/' + row.id
+      var url = '/' + language + '/' + entity + '/' + subEntity + '/edit/' + row.id
       HTTP.delete(url)
         .then(response => {
           console.log(response)
-          var nextURL = '/' + this.entity + '/' + subEntity + '/list'
+          var nextURL = '/' + entity + '/' + subEntity + '/list'
           this.$router.push(nextURL)
         })
         .catch(e => {
