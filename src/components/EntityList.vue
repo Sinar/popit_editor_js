@@ -130,7 +130,7 @@ export default {
       var entity = this.$route.params.entity
       var queryParam
       var page = 1
-      var language = localStorage.getItem('language')
+      var language = getLanguage()
       var url = '/' + language + '/search/' + entity
 
       if (['persons', 'organizations'].includes(entity)) {
