@@ -50,7 +50,8 @@ export default new Router({
         entity: 'persons',
         hasOtherName: true,
         hasIdentifier: true,
-        hasContact: true
+        hasContact: true,
+        canAssignOrg: true
       }
     },
     {
@@ -81,7 +82,8 @@ export default new Router({
         entity: 'organizations',
         hasContact: true,
         hasIdentifier: true,
-        hasOtherName: true
+        hasOtherName: true,
+        canAssignPerson: true
       }
     },
     {

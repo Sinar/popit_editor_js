@@ -7,6 +7,8 @@
         <el-button type="primary" v-if="hasOtherName" @click="listOtherNames">Other Names</el-button>
         <el-button type="primary" v-if="hasIdentifier" @click="listIdentifiers">Identifiers</el-button>
         <el-button type="primary" @click="listCitations">Citations</el-button>
+        <el-button type="primary" v-if="canAssignOrg" @click="assignOrg">Link Org</el-button>
+        <el-button type="primary" v-if="canAssignPerson" @click="assignPerson">Link Person</el-button>
       </el-col>
     </el-row>
     <el-row>
@@ -69,6 +71,14 @@ export default {
       default: false
     },
     hasIdentifier: {
+      type: Boolean,
+      default: false
+    },
+    canAssignPerson: {
+      type: Boolean,
+      default: false
+    },
+    canAssignOrg: {
       type: Boolean,
       default: false
     }
@@ -183,6 +193,16 @@ export default {
         .catch(e => {
           console.log(e)
         })
+    },
+    assignPerson () {
+      var entityId = this.$route.params.entity_id
+      var url = '/organizations/' + entityId + '/assignperson/'
+      this.$router.push(url)
+    },
+    assignOrg () {
+      var entityId = this.$route.params.entity_id
+      var url = '/persons/' + entityId + '/assignorg/'
+      this.$router.push(url)
     }
   },
   components: {
