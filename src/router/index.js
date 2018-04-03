@@ -21,6 +21,7 @@ import contactDetailSchema from '../schema/contact_detail_form.json'
 import linkSchema from '../schema/link_form.json'
 import otherNameSchema from '../schema/other_name_form.json'
 import identifierSchema from '../schema/identifier_form.json'
+import AssignEntity from '@/components/AssignEntity'
 
 Vue.use(Router)
 
@@ -222,6 +223,22 @@ export default new Router({
       path: '/:entity/:entity_id/citations/',
       name: 'CitationFieldList',
       component: CitationFieldList
+    },
+    {
+      path: '/persons/:entity_id/assignorg/',
+      name: 'AssignPersonToOrg',
+      component: AssignEntity,
+      props: {
+        field_name: 'person_id'
+      }
+    },
+    {
+      path: '/organizations/:entity_id/assignperson/',
+      name: 'AssignOrgToPerson',
+      component: AssignEntity,
+      props: {
+        field_name: 'organization_id'
+      }
     }
   ]
 })
