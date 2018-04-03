@@ -54,7 +54,7 @@ export default {
       var entity = this.$route.params.entity
       var entityID = this.$route.params.entity_id
       var field = this.$route.params.field
-      var language = localStorage.getItem('language')
+      var language = getLanguage()
       if (language === null) {
         language = 'en'
       }
