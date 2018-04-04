@@ -59,6 +59,7 @@ export default {
         language = 'en'
       }
       var url = '/' + language + '/' + entity + '/' + entityID + '/citations/' + field
+      console.log(url)
       HTTP.get(url, { params: {
         page: page
       }}).then(response => {
@@ -78,8 +79,8 @@ export default {
           }
           console.log(temp)
           this.data.push(temp)
-          this.loading = false
         }
+        this.loading = false
       })
     },
     handleEdit (row) {

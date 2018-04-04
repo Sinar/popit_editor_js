@@ -166,7 +166,7 @@ export default {
     },
     listCitations () {
       var entityId = this.$route.params.entity_id
-      var url = '/' + this.entity + '/' + entityId + '/citations/list'
+      var url = '/' + this.entity + '/' + entityId + '/citations'
       this.$router.push(url)
     },
     listOtherNames () {

@@ -55,15 +55,17 @@ export default {
         language = 'en'
       }
       var url = '/' + language + '/' + entity + '/' + entityID + '/citations/'
+      console.log(url)
       HTTP.get(url, { params: {
         page: page
       }}).then(response => {
-        var data = response.data.results
+        var data = response.data.result
+        console.log(data)
         this.pageSize = response.data.per_page
         this.total = response.data.total
         this.page = page
         this.data = []
-        for (var field of data) {
+        for (var field in data) {
           console.log(field)
           console.log(entity)
           var temp = {
@@ -72,15 +74,14 @@ export default {
           }
           console.log(temp)
           this.data.push(temp)
-          this.loading = false
         }
+        this.loading = false
       })
     },
     handleLink (row) {
       var entity = this.$route.params.entity
       var entityID = this.$route.params.entity_id
-      var field = this.$route.params.field
-      var url = '/' + entity + '/' + entityID + '/citations/' + field
+      var url = '/' + entity + '/' + entityID + '/citations/' + row.name + '/list'
       this.$router.push(url)
     },
     handlePageChange (page) {
