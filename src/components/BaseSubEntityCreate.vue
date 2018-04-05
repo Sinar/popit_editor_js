@@ -15,6 +15,7 @@
 import FormSchema from 'vue-json-schema'
 import { HTTP } from '../http-common.js'
 import { getLanguage } from '../utils.js'
+import objectDiff from '../objDiff.js'
 
 FormSchema.setComponent('form', 'el-form', ({ vm }) => {
   const labelPosition = 'top'
@@ -61,8 +62,10 @@ export default {
         this.$refs.formSchema.form().validate((valid) => {
           if (valid) {
             console.log(JSON.stringify(this.model))
+            var newObj = objectDiff(this.model)
+            console.log(JSON.stringify(newObj))
             this.$refs.formSchema.clearErrorMessage()
-            HTTP.post(url, this.model)
+            HTTP.post(url, newObj)
               .then(response => {
                 console.log(response)
                 var subEntityID = response.data.result.id

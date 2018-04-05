@@ -2,15 +2,6 @@
   "description": "A means of contacting an entity",
   "id": "http://www.popoloproject.com/schemas/contact_detail.json#",
   "properties": {
-    "created_at": {
-      "attrs": {
-        "placeholder": "The time at which the resource was created",
-        "title": "The time at which the resource was created"
-      },
-      "format": "date-time",
-      "title": "The time at which the resource was created",
-      "type": "string"
-    },
     "label": {
       "attrs": {
         "placeholder": "A human-readable label for the contact detail",
@@ -27,21 +18,20 @@
       "title": "A note, e.g. for grouping contact details by physical location",
       "type": "string"
     },
+    "value": {
+      "attrs": {
+        "placeholder": "A value, e.g. a phone number or email address",
+        "title": "A value, e.g. a phone number or email address"
+      },
+      "title": "A value, e.g. a phone number or email address",
+      "type": "string"
+    },
     "type": {
       "attrs": {
         "placeholder": "A type of medium, e.g. 'fax' or 'email'",
         "title": "A type of medium, e.g. 'fax' or 'email'"
       },
       "title": "A type of medium, e.g. 'fax' or 'email'",
-      "type": "string"
-    },
-    "updated_at": {
-      "attrs": {
-        "placeholder": "The time at which the resource was last modified",
-        "title": "The time at which the resource was last modified"
-      },
-      "format": "date-time",
-      "title": "The time at which the resource was last modified",
       "type": "string"
     },
     "valid_from": {
@@ -60,14 +50,6 @@
       },
       "pattern": "^[0-9]{4}(-[0-9]{2}){0,2}$",
       "title": "The date from which the contact detail is no longer valid",
-      "type": "string"
-    },
-    "value": {
-      "attrs": {
-        "placeholder": "A value, e.g. a phone number or email address",
-        "title": "A value, e.g. a phone number or email address"
-      },
-      "title": "A value, e.g. a phone number or email address",
       "type": "string"
     }
   },
