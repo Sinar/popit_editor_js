@@ -177,8 +177,7 @@ export default {
       HTTP.delete(url)
         .then(response => {
           console.log(response)
-          var nextURL = '/' + entity + '/list'
-          this.$router.push(nextURL)
+          this.fetchEntity(1)
         })
         .catch(e => {
           console.log(e)
