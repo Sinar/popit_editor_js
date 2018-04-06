@@ -1,9 +1,20 @@
 <template>
-  <el-card class="form">
-    <form-schema ref="formSchema" :schema="schema" v-model="model">
-      <el-button type="primary" @click="submit">Create</el-button>
-    </form-schema>
-  </el-card>
+  <el-main>
+    <el-row>
+      <el-col :span="24">
+        <el-button type="primary" @click="handleGoHome">Home</el-button>
+      </el-col>
+    </el-row>
+    <el-row>
+      <el-col :span="24">
+        <el-card class="form">
+          <form-schema ref="formSchema" :schema="schema" v-model="model">
+            <el-button type="primary" @click="submit">Create</el-button>
+          </form-schema>
+        </el-card>
+      </el-col>
+    </el-row>
+  </el-main>
 </template>
 <script>
 import FormSchema from 'vue-json-schema'
@@ -80,6 +91,9 @@ export default {
       } else {
         this.$router.push('/login')
       }
+    },
+    handleGoHome () {
+      this.$router.push('/')
     }
   },
   components: {
