@@ -10,6 +10,7 @@
         <el-card class="form">
           <form-schema ref="formSchema" :schema="schema" v-model="model">
             <el-button type="primary" @click="submit">Save</el-button>
+            <el-button type="danger" @click="deleteEntity">Delete</el-button>
           </form-schema>
         </el-card>
       </el-col>

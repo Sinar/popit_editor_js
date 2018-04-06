@@ -6,7 +6,7 @@
       </el-col>
     </el-row>
     <el-row>
-      <el-col :span="24"> 
+      <el-col :span="24">
         <el-card class="entities">
           <el-table :data="data"
             v-loading="loading">
