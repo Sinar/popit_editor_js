@@ -1,6 +1,11 @@
 <template>
   <el-main>
     <el-row>
+      <el-col :span="24">
+        <el-button type="primary" @click="handleGoHome">Home</el-button>
+      </el-col>
+    </el-row>
+    <el-row>
       <el-card class="form">
         <form-schema ref="formSchema" :schema="schema" v-model="model">
           <el-button type="primary" @click="submit">Create</el-button>
@@ -88,6 +93,9 @@ export default {
       } else {
         this.$router.push('/login')
       }
+    },
+    handleGoHome () {
+      this.$router.push('/')
     }
   },
   components: {

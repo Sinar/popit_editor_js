@@ -2,6 +2,7 @@
   <el-main>
     <el-row>
       <el-col :span="24">
+        <el-button type="primary" @click="handleGoHome">Home</el-button>
         <el-button type="primary" v-if="hasContact" @click="listContactDetails">Contact Details</el-button>
         <el-button type="primary" @click="listLinks">Links</el-button>
         <el-button type="primary" v-if="hasOtherName" @click="listOtherNames">Other Names</el-button>
@@ -203,6 +204,9 @@ export default {
       var entityId = this.$route.params.entity_id
       var url = '/persons/' + entityId + '/assignorg/'
       this.$router.push(url)
+    },
+    handleGoHome () {
+      this.$router.push('/')
     }
   },
   components: {

@@ -2,6 +2,7 @@
   <el-main>
     <el-row>
       <el-col :span="24">
+        <el-button type="primary" @click="handleGoHome">Home</el-button>
         <el-button type="primary" @click="handleCreate">Create</el-button>
       </el-col>
     </el-row>
@@ -68,6 +69,8 @@ export default {
   },
   watch: {
     '$route': function (to, from) {
+      console.log(to)
+      console.log(from)
       this.fetchEntity(1)
     }
   },
@@ -182,6 +185,9 @@ export default {
         .catch(e => {
           console.log(e)
         })
+    },
+    handleGoHome () {
+      this.$router.push('/')
     }
   }
 }
