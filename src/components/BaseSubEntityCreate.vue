@@ -3,6 +3,7 @@
     <el-row>
       <el-col :span="24">
         <el-button type="primary" @click="handleGoHome">Home</el-button>
+        <el-button type="primary" @click="handleGoParent">Parent</el-button>
       </el-col>
     </el-row>
     <el-row>
@@ -98,6 +99,12 @@ export default {
     },
     handleGoHome () {
       this.$router.push('/')
+    },
+    handleGoParent () {
+      var entityId = this.$route.params.entity_id
+      var entity = this.$route.params.entity
+      var parentURL = '/' + entity + '/edit/' + entityId
+      this.$router.push(parentURL)
     }
   },
   components: {
